@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Boogaloo');
+
+@import url('https://fonts.googleapis.com/css?family=Satisfy');
+
+body {
+  background: #6699ff; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, #00cc99, #6699ff); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(left, #00cc99, #6699ff); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(left, #00cc99, #6699ff); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(left, #00cc99, #6699ff); /* Standard syntax */
+}
+
+#hover_here {
+  position: relative;
+  height: 30%;
+  /*width: 30%;*/
+  margin: auto;
+  margin-top: 50px;
+  color: green;
+}
+
+header {
+  position: relative;
+  color: white;
+  font-size: 1.5em;
+  top: 200px;
+}
+
+article {
+  margin-top: 5px;
+  display: none;
+  margin: 30px 175px 0px 175px;
+}
+
+.jumbotron {
+  background: #b3ffff;
+  padding: 25px;
+}
+
+#quote {
+  font-family: 'Boogaloo', cursive;
+  font-size: 1.5em;
+}
+
+#name {
+  font-family: 'Satisfy', cursive;
+  font-size: 2em;
+  margin-top: 10px;
+}
+
+img {
+  /*max-width: 100%;*/
+  max-height: 100%;
+  border-radius: 20px;
+  width: calc(100%/2);
+  /*height: calc(10%/2);*/
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+}
+
+#getQuote {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#getQuote:hover {
+  background: #0099ff;
+  color: white;
+}
+
+#twitter {
+  position: relative;
+  font-size: 18px;
+  cursor: pointer;
+  display: hide;
+}
+
+#twitter:hover {
+  color: #0099ff;
+}
+
+footer {
+  color: white;
+  margin-top: 170px;
+  visibility: hidden;
+}
