@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Quote Machine</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="random_quote_machine.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://use.fontawesome.com/d81fb7d455.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="random_quote_machine.js"></script>
+</head>
+<body>
+
+  <div class="container-fluid">
+    <header>
+      <div id="title" class="text-center text-uppercase">
+        <h4>Random Quote Machine</h4>
+        <p id="hover_here">Hover the mouse here!</p>
+      </div>
+    </header>
+    <br>
+
+    <article>
+      <div class="container-fluid jumbotron">
+        <div id="intro" class="lead text-justify text-center">
+          <p>Welcome to the random quote machine.<br>This app displays random quotes every time you click the <b><i>Show Quote</i></b> button down below.<br>Go ahead and try it yourself!</p>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-6">
+            <span id="img">
+            </span>
+            <br>
+            <div class="row text-center">
+              <div class="col-md-6 col-sm-6 col-xs-6">
+                <button id="getQuote" class="btn btn-md fa fa-quote-left"> Show Quote</button>
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-6">
+                  <button type="button" id="twitter" class="btn btn-md">Tweet it! <i class="fa fa-twitter"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 text-center text-justify">
+            <br>
+            <span id="quote"></span>
+            <span><p id="name"></p></span>
+          </div>
+        </div>
+    </article>
+      </div>
+    <br>
+
+    <footer class="text-center">
+      <strong>Created by Helio Cardoso</strong>
+    </footer>
+
+</body>
+</html>
