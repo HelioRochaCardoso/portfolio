@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Wiki Viewer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="wiki_viewer.css">
+    <script src="wiki_viewer.js"></script>
+</head>
+<body>
+  <!-- add dropdown menu with autocomplete option -->
+  <div class="container-fluid">
+    <br>
+    <div class="main-container">
+      <h2 class="text-center" id="page_heading">Wiki Viewer</h2>
+      <br>
+      <div class="text-center">
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1122px-Wikipedia-logo-v2.svg.png" id="wikiImg" alt="Wikipedia logo" style="height: 200px">
+      </div>
+      <br><br>
+
+      <div id="data_container">
+        <div class="input-group">
+          <input type="text" id="input" class="form-control text-center">
+          <div class="input-group-btn">
+            <button class="btn btn-primary btn-sm" type="button" id="searchBtn">Search
+Wiki</button>
+          </div>
+        </div>
+        <hr id="hr" style="width: 80%; border-color: white; margin: auto">
+        <br><br>
+        <div class="text-center">
+          <a href="https://en.wikipedia.org/wiki/Special:Random">
+            <button class="btn btn-primary" type="button" id="randomBtn">Random Wiki</button>
+          </a>
+        </div>
+        <ul class="list-group" id="output">
+        </ul>
+      </div>
+      <!-- /data_container -->
+    </div>
+    <!-- /main-container -->
+  </div>
+  <!-- /container-fluid -->
+
+</body>
+<html>
