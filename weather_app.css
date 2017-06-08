@@ -1,0 +1,99 @@
+body {
+  height: 100vh;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+nav {
+  background-color: rgba(0, 153, 51, 0.3);
+}
+
+#marker {
+  position: absolute;
+  top: 12px;
+  left: 40px;
+  color: orange;
+}
+
+#city_info {
+  color: white;
+  font-size: 5vh;
+}
+
+#date {
+  color: white;
+}
+
+#search {
+  width: 18vw;
+}
+
+#locSearch {
+  padding: 0;
+}
+
+button {
+  cursor: pointer;
+  width: 3vw;
+}
+
+#weather_description {
+  color: orange;
+}
+
+#weather_container {
+  top: 50px;
+}
+
+#icon1 {
+  position: relative;
+  display: block;
+  margin: auto;
+  top: -5px;
+}
+
+#weather_stats_container {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  width: 47vw;
+  margin: auto;
+}
+
+.stats {
+  font-weight: 900;
+}
+
+#temp_toggle {
+  cursor: pointer;
+  color: white;
+  padding: 5px;
+  float: left;
+  margin-left: -15px;
+  border-radius: 20px 0px 0px 20px;
+  background-color: rgba(0, 153, 51, 0.3);
+  width: 30px;
+  height: 50px;
+}
+
+#temp_toggle:hover {
+  background-color: #003d99;
+}
+
+#last_update {
+  font-size: 14px;
+  color: orange;
+  font-weight: 600;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+footer p {
+  line-height: 25px;
+}
