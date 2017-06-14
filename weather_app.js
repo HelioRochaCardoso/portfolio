@@ -15,7 +15,7 @@ $(document).ready(function() {
   
   switch (day3) {
     case "1":
-      day3 += "st";
+      day3 += "st"; 
       break;
     case "2":
       day3 += "nd";
