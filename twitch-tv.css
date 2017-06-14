@@ -1,0 +1,9 @@
+.containers {
+    margin-top: 100px;
+    list-style: none;
+    background-color: rgba(137, 111, 212, 0.53);
+}
+
+#container1 {
+  background-color: blue;
+}
