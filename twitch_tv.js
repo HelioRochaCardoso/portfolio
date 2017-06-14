@@ -6,18 +6,17 @@ $(document).ready(function () {
         api = api.replace();
     }
 
-    $("#item1").on("click", function() {
+    $("#btn").on("click", function() {
         $.ajax({
             type: "POST",
             url: api,
-            dataType: "jsonp"
-            success: function
-              (data) {
-              // $("#container1").html(data.bio);
-              // $("#container2").html(data.display_name);
-              // $("#container3").html(data._links.self);
+            dataType: "jsonp",
+            success: function (data) {
+              $("#container1").html(data.bio);
+              $("#container2").html(data.display_name);
+              $("#container3").html(data._links.self);
             }
         });
     });
 
-})
+});
