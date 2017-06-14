@@ -12,6 +12,9 @@ $(document).ready(function () {
             url: api,
             dataType: "jsonp",
             success: function (data) {
+              for (var i = 0; i < users.length; i++) {
+
+              }
               $("#container1").html(data.bio);
               $("#container2").html(data.display_name);
               $("#container3").html(data._links.self);
