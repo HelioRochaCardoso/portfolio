@@ -6,7 +6,6 @@ $(document).ready(function() {
   users.forEach(function(user) {
     user_call = api.concat(user + "?callback=?");
     alert(user_call);
-    $("li div").html(user_call);
   });
 
   $("#btn").on("click", function() {
