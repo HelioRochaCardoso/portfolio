@@ -10,33 +10,39 @@ nav {
   background-color: rgba(0, 153, 51, 0.3);
 }
 
+nav div div:first-child {
+  text-align: center;
+  line-height: 100%;
+}
+
+nav div div:last-child {
+  text-align: center;
+  line-height: 100%;
+}
+
 #marker {
-  position: absolute;
-  top: 12px;
-  left: 40px;
+  position: relative;
+  top: 38px;
+  left: -10px;
+  display: flex;
+  flex-wrap: nowrap;
+  /*line-height: 250%;*/
   color: orange;
 }
 
 #city_info {
   color: white;
   font-size: 5vh;
+  position: relative;
+  top: -10px;
+  float: left;
 }
 
 #date {
   color: white;
-}
-
-#search {
-  width: 18vw;
-}
-
-#locSearch {
-  padding: 0;
-}
-
-button {
-  cursor: pointer;
-  width: 3vw;
+  position: relative;
+  top: 15px;
+  float: right;
 }
 
 #weather_description {
@@ -81,8 +87,12 @@ button {
   background-color: #003d99;
 }
 
+#temp_toggle:focus {
+  outline: 0;
+}
+
 #last_update {
-  font-size: 14px;
+  font-size: 12px;
   color: orange;
   font-weight: 600;
 }
