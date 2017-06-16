@@ -1,25 +1,23 @@
-$(document).ready(function () {
-    var api = "https://wind-bow.gomix.me/twitch-api/users/freecodecamp?callback=?";
-    var users = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"];
-    for (var i = 0; i < users.length; i++) {
-        var html = "";
-        api = api.replace();
-    }
+$(document).ready(function() {
+  var api = "https://wind-bow.gomix.me/twitch-api/users/";
+  var users = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"];
+  var user_call = "";
 
-    $("#btn").on("click", function() {
-        $.ajax({
-            type: "POST",
-            url: api,
-            dataType: "jsonp",
-            success: function (data) {
-              for (var i = 0; i < users.length; i++) {
+  users.forEach(function(user) {
+    user_call = api.concat(user + "?callback=?");
+    alert(user_call);
+    $("li div").html(user_call);
+  });
 
-              }
-              $("#container1").html(data.bio);
-              $("#container2").html(data.display_name);
-              $("#container3").html(data._links.self);
-            }
-        });
+  $("#btn").on("click", function() {
+    $.ajax({
+      type: "POST",
+      url: api,
+      dataType: "jsonp",
+      success: function(data) {
+
+      }
     });
+  });
 
 });
