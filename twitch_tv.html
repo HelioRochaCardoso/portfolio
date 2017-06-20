@@ -7,46 +7,54 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Twitch TV</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://use.fontawesome.com/d81fb7d455.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="twitch_tv.js"></script>
   <link rel="stylesheet" type="text/css" href="twitch_tv.css">
 </head>
 
 <body>
-  <div class="container-fluid" id="main_container">
-    <h1 id="title">Twitch TV</h1>
+  <div class="container-fluid">
+    <h1 id="title">Twitch TV API</h1>
 
-    <button type="button" id="btn">Click Me</button>
-    <div id="inner_container">Users
-      <!-- <ul>
-        <li>
-          <div id="container1">User 1</div>
-        </li>
-        <li>
-          <div id="container2">User 2</div>
-        </li>
-        <li>
-          <div id="container3">User 3</div>
-        </li>
-        <li>
-          <div id="container4">User 4</div>
-        </li>
-        <li>
-          <div id="container5">User 5</div>
-        </li>
-        <li>
-          <div id="container6">User 6</div>
-        </li>
-        <li>
-          <div id="container7">User 7</div>
-        </li>
-        <li>
-          <div id="container8">User 8</div>
-        </li>
-      </ul> -->
+    <div id="btn_container">
+      <button type="submit" id="btn">Click Me</button>
+    </div>
+
+    <div id="inner_container">
+      <div id="menu">
+        <div class="row" id="menu_top">
+          <div class="col-md-6 text-center" id="app">
+            <h4>Twitch TV App</h4>
+          </div>
+          <div class="col-md-6 text-center">
+            <div id="searchField">
+              <i class="fa fa-search fa-lg" id="searchBtn" aria-hidden="true"></i>
+              <input type="search" id="searchInput" placeholder="Search">
+            </div>
+          </div>
+        </div>
+        <div class="row" id="menu_bottom">
+          <div id="all" class="col-md-4 text-center">
+            <h4>All</h4>
+          </div>
+          <div id="online" class="col-md-4 text-center">
+            <h4>Online</h4>
+          </div>
+          <div id="offline" class="col-md-4 text-center">
+            <h4>Offline</h4>
+          </div>
+        </div>
+      </div>
+      <div id="users">Hello</div>
     </div>
 
   </div>
+  </div>
+
+  <footer id="footer" class="text-center">Powered by <a href="https://dev.twitch.tv/docs/" target="_blank">Twitch API</a></footer>
+  </div>
+
 </body>
 
 </html>
