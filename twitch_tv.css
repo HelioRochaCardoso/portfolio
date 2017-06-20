@@ -58,6 +58,10 @@
   border-right: 1px dashed yellow;
 }
 
+.unstyle_list {
+  list-style: none;
+}
+
 #users {
   background-color: white;
 }

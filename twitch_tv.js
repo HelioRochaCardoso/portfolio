@@ -25,7 +25,7 @@ $(document).ready(function() {
       url: user_call,
       dataType: "jsonp",
       success: function(data) {
-        $("#all").append("<h4>All</h4><p>" + data.stream + "\n" + data._links.self + "</p>");
+        $("#users").html("<ul class='list-group'><a href='" + data._links.channel + "'><li class='list-group-item'>" + data.stream + "<br/>" + data._links.self + "</li></a></ul>");
       },
       error: function(xhr) {
         alert("Error " + xhr.status + "\nData not found.");
