@@ -2,6 +2,62 @@
   text-align: center;
 }
 
-li {
-  list-style: none;
+#inner_container {
+  width: 600px;
+  margin: auto;
+  border: 2px solid red;
+  border-radius: 30px;
+  position: relative;
+  top: 5px;
+  height: 100vh;
+}
+
+#menu {
+  background-color: rgb(36, 140, 128);
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+  height: 12em;
+  position: relative;
+}
+
+#app, #searchField {
+  position: relative;
+  top: 50px;
+}
+
+#menu_bottom {
+  border: 1px dashed green;
+  width: 100%;
+  margin: auto;
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+}
+
+#searchInput {
+  visibility: hidden;
+}
+
+#searchBtn {
+  position: relative;
+  right: -100px;
+  cursor: pointer;
+}
+
+#searchBtn:hover {
+  color: white;
+}
+
+#all:hover, #online:hover, #offline:hover {
+  color: white;
+  background-color: black;
+}
+
+#online {
+  border-left: 1px dashed yellow;
+  border-right: 1px dashed yellow;
+}
+
+#users {
+  background-color: white;
 }

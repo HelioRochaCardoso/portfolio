@@ -4,31 +4,35 @@ $(document).ready(function() {
 
   $("#btn").on("click", function() {
     // var api = "https://wind-bow.gomix.me/twitch-api/users/";
-    var api = "https://api.twitch.tv/kraken/";
+    var api = "https://api.twitch.tv/kraken/streams/";
     var client_id = "7z9b84cn6ix9kei678z24y5rqhesi2";
+    var api_version = "&v5+json";
     var users = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"];
     var user_call = "";
-    users.forEach(function(user) {
-      user_call = api.concat(user + "/twitch" /*?client_id=" + client_id + "?callback=?*/ );
-      ajax();
-    });
 
-    function ajax() {
-      $.ajax({
-        type: "POST",
-        url: user_call,
-        headers: {
-          "Client-ID": "7z9b84cn6ix9kei678z24y5rqhesi2"
-        },
-        dataType: "jsonp",
-        success: function(data) {
-          $("#inner_containner").html("<ul><li>" + data.display_name + "</li></ul>");
-        },
-        error: function(xhr) {
-          alert("Error " + xhr.status);
-        }
-      });
-    }
+    // users.forEach(function(user) {
+    //   user_call = api.concat(user + "?client_id=" + client_id);
+    //   ajax();
+    // });
+
+    // function ajax() {
+    // users.forEach(function(user) {
+    user_call = api.concat("freecodecamp" + "?client_id=" + client_id + api_version);
+    console.log(user_call);
+
+    $.ajax({
+      type: "POST",
+      url: user_call,
+      dataType: "jsonp",
+      success: function(data) {
+        $("#all").append("<h4>All</h4><p>" + data.stream + "\n" + data._links.self + "</p>");
+      },
+      error: function(xhr) {
+        alert("Error " + xhr.status + "\nData not found.");
+      }
+    });
+    // });
+    // }
   });
 
 });
