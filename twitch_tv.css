@@ -1,3 +1,22 @@
+* {
+  color: white;
+}
+
+.container-fluid {
+  padding: 0;
+  background: red;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, rgb(94, 74, 99), rgb(41, 20, 50));
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, rgb(94, 74, 99), );
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, rgb(94, 74, 99), rgb(41, 20, 50));
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, rgb(94, 74, 99), );
+  /* Standard syntax */
+  height: 100vh;
+}
+
 #title {
   text-align: center;
 }
@@ -5,37 +24,38 @@
 #inner_container {
   width: 600px;
   margin: auto;
-  border: 2px solid red;
   border-radius: 30px;
   position: relative;
   top: 5px;
-  height: 100vh;
+  height: 81%;
+  border: 3px solid white;
 }
 
 #menu {
   background-color: rgb(36, 140, 128);
   border-top-right-radius: 30px;
   border-top-left-radius: 30px;
-  height: 12em;
+  height: 8em;
   position: relative;
 }
 
 #app, #searchField {
   position: relative;
-  top: 50px;
+  top: 20px;
 }
 
 #menu_bottom {
-  border: 1px dashed green;
   width: 100%;
   margin: auto;
-  cursor: pointer;
   position: absolute;
   bottom: 0;
 }
 
 #searchInput {
   visibility: hidden;
+  border-radius: 25px;
+  outline: 0;
+  color: black;
 }
 
 #searchBtn {
@@ -44,24 +64,43 @@
   cursor: pointer;
 }
 
-#searchBtn:hover {
-  color: white;
-}
-
-#all:hover, #online:hover, #offline:hover {
-  color: white;
-  background-color: black;
-}
-
-#online {
-  border-left: 1px dashed yellow;
-  border-right: 1px dashed yellow;
-}
-
-.unstyle_list {
-  list-style: none;
+.status:hover {
+  color: black;
+  cursor: pointer;
+  background-color: white;
 }
 
 #users {
-  background-color: white;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+#users_all {
+  background-color: grey;
+}
+
+#users_online {
+  background-color: green;
+}
+
+#users_offline {
+  background-color: red;
+}
+
+.img-size-height {
+  height: 100px;
+  width: 80px;
+  margin: auto;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+#footer p {
+  text-align: center;
 }
