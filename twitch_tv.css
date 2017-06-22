@@ -75,6 +75,7 @@
   border-bottom-right-radius: 30px;
   padding: 0;
   margin: 0;
+  height: inherit;
 }
 
 #users_all {
