@@ -5,7 +5,7 @@ $(document).ready(function() {
   var client_id = "7z9b84cn6ix9kei678z24y5rqhesi2";
   var api_version = "&v5+json";
   var users = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"];
-  var user_call_stream, user_name, logo, url, game, bio, html_all;
+  var user_call_stream, user_name, logo, url, game, bio, html_all, status, watching;
 
   // for (var i = 0; i < users.length; i++) {
   //   api_streams = api_streams.concat(users[i] + "?client_id=" + client_id + api_version);
@@ -36,22 +36,19 @@ $(document).ready(function() {
   });
 
   function show_all() {
-    $.getJSON(api_channels.concat(users[2] + "?client_id=" + client_id + api_version), function(data1) {
+    $.get(api_channels.concat(users[2] + "?client_id=" + client_id + api_version), function(data1) {
       user_name = data1.display_name;
       logo = data1.logo;
       url = data1.url;
-
-      $("#users_offline").hide();
-      $("#users_online").hide();
-
-      html_all = "<div class='col-md-4 text-center' id='all_description'><ul class='list-group list-unstyled'><a href='" + url + "' target='_blank'><li class='list-group-item'><img class='img-responsive img-circle img-size-height' src='" + logo + "'></li><li class='list-group-item' style='color: black'>" + user_name + "</li></a></ul></div>";
-
-      $("#users_all").show().html(html_all);
-
-      $.getJSON(api_users.concat(users[2] /* get all users */ + "?client_id=" + client_id + api_version), function(data_all) {
+      $.get(api_users.concat(users[2] /* get all users */ + "?client_id=" + client_id + api_version), function(data_all) {
         bio = data_all.bio;
 
-        $("#all_description").append(html_all.concat("<div class='col-md-8 text-center text-warning' style='line-height: 50px; background-color: grey'><p class='list-group-item-text' style='color: black; position: relative; top: 70px'>" + bio + "</p></div>"));
+        $("#users_offline").hide();
+        $("#users_online").hide();
+
+        html_all = "<div class='col-md-4 text-center' id='all_description'><ul class='list-group list-unstyled'><a href='" + url + "' target='_blank'><li class='list-group-item'><img class='img-responsive img-circle img_size' src='" + logo + "'></li><li class='list-group-item bg-inverse text-white'>" + user_name + "</li></a></ul></div><div class='col-md-8 text-center'><p class='list-group-item-text' style='position: relative; top: 40px'>" + bio + "</p></div>";
+
+        return $("#users_all").show().html(html_all);
       });
     });
   }
@@ -59,7 +56,7 @@ $(document).ready(function() {
   function offline() {
     $.get(api_streams.concat(users[3] + "?client_id=" + client_id + api_version), function(data2) {
       if (data2.stream === null) {
-        $.getJSON(api_channels.concat(users[3] /* get all data2.streams with value null */ + "?client_id=" + client_id + api_version), function(data_offline) {
+        $.get(api_channels.concat(users[3] /* get all data2.streams with value null */ + "?client_id=" + client_id + api_version), function(data_offline) {
           var html = "";
           user_name = data_offline.display_name;
           logo = data_offline.logo;
@@ -68,7 +65,7 @@ $(document).ready(function() {
           $("#users_all").hide();
           $("#users_online").hide();
 
-          html = "<div class='col-md-4 text-center'><ul class='list-group list-unstyled'><a href='" + url + "' target='_blank'><li class='list-group-item'><img class='img-responsive img-circle img-size-height' src='" + logo + "'></li><li class='list-group-item'>" + user_name + "</li></a></ul></div><div class='col-md-8 text-center' style='position: relative; top: 70px'><p class='list-group-item-text text-info'>Currently Offline</p></div>";
+          html = "<div class='col-md-4 text-center'><ul class='list-group list-unstyled'><a href='" + url + "' target='_blank'><li class='list-group-item'><img class='img-responsive img-circle img_size' src='" + logo + "'></li><li class='list-group-item bg-warning text-white'>" + user_name + "</li></a></ul></div><div class='col-md-8 text-center'><p class='list-group-item-text' style='position: relative; top: 70px'>Currently Offline</p></div>";
 
           return $("#users_offline").show().html(html);
         });
@@ -77,19 +74,21 @@ $(document).ready(function() {
   }
 
   function online() {
-    $.getJSON(api_streams.concat(users[0] + "?client_id=" + client_id + api_version), function(data3) {
+    $.get(api_streams.concat(users[0] + "?client_id=" + client_id + api_version), function(data3) {
       if (data3.stream !== null) {
-        $.getJSON(api_streams.concat(users[0] /* get all data4.stream without value null */ + "?client_id=" + client_id + api_version), function(data_online) {
+        $.get(api_streams.concat(users[0] /* get all data4.stream without value null */ + "?client_id=" + client_id + api_version), function(data_online) {
           var html = "";
           user_name = data_online.stream.channel.display_name;
           logo = data_online.stream.channel.logo;
           url = data_online.stream.channel.url;
           game = data_online.stream.game;
+          status = data_online.stream.channel.status;
+          watching = data_online.stream.viewers;
 
           $("#users_all").hide();
           $("#users_offline").hide();
 
-          html = "<div class='col-md-4 text-center'><ul class='list-group list-unstyled'><a href='" + url + "' target='_blank'><li class='list-group-item'><img class='img-responsive img-circle img-size-height' src='" + logo + "'></li><li class='list-group-item'>" + user_name + "</li></a></ul></div><div class='col-md-8 text-center' style='position: relative; top: 70px'><p class='list-group-item-text text-info'>Currently playing <span class='text-success'><strong>" + game + "</strong></span></p></div>";
+          html = "<div class='col-md-4 text-center'><ul class='list-group list-unstyled'><a href='" + url + "' target='_blank'><li class='list-group-item'><img class='img-responsive img-circle img_size' src='" + logo + "'></li><li class='list-group-item bg-success text-white'>" + user_name + "</li></a></ul></div><div class='col-md-8 text-center'><ul class='list-group list-unstyled'><li class='list-group-item-text'>" + status + "</li><li class='list-group-item-text' style='position: relative; top: 30px'>Currently playing <em><strong>" + game + "</strong></em></li><li class='list-group-item-text' style='position: relative; top: 40px'><div><p>Currently watching: " + watching + " <i class='fa fa-user' aria-hidden='true'></i></div></li></ul></div>";
 
           return $("#users_online").show().html(html);
         });
