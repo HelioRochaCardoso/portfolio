@@ -4,16 +4,7 @@
 
 .container-fluid {
   padding: 0;
-  background: red;
-  /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left top, rgb(94, 74, 99), rgb(41, 20, 50));
-  /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom right, rgb(94, 74, 99), );
-  /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom right, rgb(94, 74, 99), rgb(41, 20, 50));
-  /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom right, rgb(94, 74, 99), );
-  /* Standard syntax */
+  background-color: black;
   height: 100vh;
 }
 
@@ -25,10 +16,18 @@
   width: 600px;
   margin: auto;
   border-radius: 30px;
-  position: relative;
   top: 5px;
   height: 81%;
-  border: 3px solid white;
+  background: red;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, rgb(94, 74, 99), rgb(41, 20, 50));
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, rgb(94, 74, 99), rgb(41, 20, 50));
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, rgb(94, 74, 99), rgb(41, 20, 50));
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, rgb(94, 74, 99), rgb(41, 20, 50));
+  /* Standard syntax */
 }
 
 #menu {
@@ -37,6 +36,7 @@
   border-top-left-radius: 30px;
   height: 8em;
   position: relative;
+  top: 0;
 }
 
 #app, #searchField {
@@ -84,6 +84,7 @@
   padding: 0;
   margin: 0;
   height: inherit;
+  background-color: rgb(197, 239, 247);
 }
 
 
@@ -119,6 +120,14 @@
   margin: auto;
 }
 
+.border-logo-online {
+  border: 3px solid rgb(21, 150, 22);
+}
+
+.border-logo-offline {
+  border: 3px solid rgba(247, 0, 0, 1);
+}
+
 .bg-success {
   background-color: rgb(21, 150, 22);
 }
@@ -133,6 +142,10 @@
 
 .text-white {
   color: white;
+}
+
+.text-black {
+  color: black;
 }
 
 #footer {
