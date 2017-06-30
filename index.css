@@ -124,7 +124,16 @@ body {
 }
 
 #portfolio {
+  background: linear-gradient(#995c00, #664400);
+  /* Standard syntax */
   background: -webkit-linear-gradient(#995c00, #664400);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#995c00, #664400);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#995c00, #664400);
+  /* For Firefox 3.6 to 15 */
+  background: #995c00;
+  /* For browsers that do not support gradients */
   min-height: 100vh;
   padding-top: 50px;
 }
@@ -195,9 +204,7 @@ body {
 
 #hr_form {
   width: 20%;
-  margin: 0;
-  position: relative;
-  left: 260px;
+  margin: 0 auto;
   opacity: 0.2;
 }
 
