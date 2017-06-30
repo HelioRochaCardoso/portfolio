@@ -45,7 +45,6 @@ body {
 }
 
 #about {
-  /*background: #ff8533 url('https://www.zonocloud.com/img/svg/web-development-banner.svg') no-repeat 100% 25%;*/
   background: url('https://wallpaperscraft.com/image/computer_keyboard_mouse_laptop_mac_apple_66734_3840x1200.jpg')no-repeat fixed center;
   background-size: cover;
   min-height: 100vh;
@@ -76,8 +75,9 @@ body {
 
 #my_image {
   position: relative;
-  border-radius: 10px;
+  border-radius: 100%;
   height: 185px;
+  width: 170px;
   top: 30px;
 }
 
