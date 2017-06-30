@@ -4,7 +4,7 @@ $(document).ready(function() {
   var api_users = "https://api.twitch.tv/kraken/users/";
   var client_id = "7z9b84cn6ix9kei678z24y5rqhesi2";
   var api_version = "&v5+json";
-  var users = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "hearthstonefr", ];
+  var users = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "hearthstonefr"];
   var user_call_stream, user_name, logo, url, game, bio, html_all, status, watching, followers, views;
 
   // for (var i = 0; i < users.length; i++) {
@@ -23,24 +23,34 @@ $(document).ready(function() {
   //   }
   // });
 
-  $("#all").on("click", function() {
-    show_all();
-  });
+  function showData(array, i) {
+    array = users.length;
+    if (array[i - 1] === 0) {
+      return;
+    }
 
-  $("#offline").on("click", function() {
-    offline();
-  });
+    $("#all").on("click", function() {
+      show_all(i);
+      return showData(array, i - 1);
+    });
 
-  $("#online").on("click", function() {
-    online();
-  });
+    $("#offline").on("click", function() {
+      offline(i);
+      return showData(array, i - 1);
+    });
 
-  function show_all() {
-    $.get(api_channels.concat(users[2] + "?client_id=" + client_id + api_version), function(data1) {
+    $("#online").on("click", function() {
+      online(i);
+      return showData(array - 1);
+    });
+  }
+
+  function show_all(user) {
+    $.get(api_channels.concat(user + "?client_id=" + client_id + api_version), function(data1) {
       user_name = data1.display_name;
       logo = data1.logo;
       url = data1.url;
-      $.get(api_users.concat(users[2] /* get all users */ + "?client_id=" + client_id + api_version), function(data_all) {
+      $.get(api_users.concat(user /* get all users */ + "?client_id=" + client_id + api_version), function(data_all) {
         bio = data_all.bio;
 
         $("#users_offline").hide();
@@ -53,10 +63,10 @@ $(document).ready(function() {
     });
   }
 
-  function offline() {
-    $.get(api_streams.concat(users[3] + "?client_id=" + client_id + api_version), function(data2) {
+  function offline(user) {
+    $.get(api_streams.concat(user + "?client_id=" + client_id + api_version), function(data2) {
       if (data2.stream === null) {
-        $.get(api_channels.concat(users[3] /* get all data2.streams with value null */ + "?client_id=" + client_id + api_version), function(data_offline) {
+        $.get(api_channels.concat(user /* get all data2.streams with value null */ + "?client_id=" + client_id + api_version), function(data_offline) {
           var html = "";
           user_name = data_offline.display_name;
           logo = data_offline.logo;
@@ -73,10 +83,10 @@ $(document).ready(function() {
     });
   }
 
-  function online() {
-    $.get(api_streams.concat(users[0] + "?client_id=" + client_id + api_version), function(data3) {
+  function online(user) {
+    $.get(api_streams.concat(user + "?client_id=" + client_id + api_version), function(data3) {
       if (data3.stream !== null) {
-        $.get(api_streams.concat(users[0] /* get all data4.stream without value null */ + "?client_id=" + client_id + api_version), function(data_online) {
+        $.get(api_streams.concat(user /* get all data4.stream without value null */ + "?client_id=" + client_id + api_version), function(data_online) {
           var html = "";
           user_name = data_online.stream.channel.display_name;
           logo = data_online.stream.channel.logo;
@@ -99,5 +109,4 @@ $(document).ready(function() {
       }
     });
   }
-
 });
