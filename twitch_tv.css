@@ -1,11 +1,20 @@
-* {
+body {
   color: white;
+  background: purple;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(bottom right, #990099, black);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #990099, black);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #990099, black);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #990099, black);
+  /* Standard syntax */
 }
 
 .container-fluid {
+  position: relative;
   padding: 0;
-  background-color: black;
-  height: 100vh;
 }
 
 #title {
@@ -13,25 +22,15 @@
 }
 
 #inner_container {
+  position: relative;
   width: 600px;
   margin: auto;
   border-radius: 30px;
-  top: 5px;
-  height: 81%;
-  background: red;
-  /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left top, rgb(94, 74, 99), rgb(41, 20, 50));
-  /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom right, rgb(94, 74, 99), rgb(41, 20, 50));
-  /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom right, rgb(94, 74, 99), rgb(41, 20, 50));
-  /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom right, rgb(94, 74, 99), rgb(41, 20, 50));
-  /* Standard syntax */
+  margin-bottom: 45px;
 }
 
 #menu {
-  background-color: rgb(36, 140, 128);
+  background-color: rgba(36, 140, 128, 0.6);
   border-top-right-radius: 30px;
   border-top-left-radius: 30px;
   height: 8em;
@@ -39,7 +38,7 @@
   top: 0;
 }
 
-#app, #searchField {
+#menu_top .col-md-6 {
   position: relative;
   top: 20px;
 }
@@ -83,22 +82,8 @@
   border-bottom-right-radius: 30px;
   padding: 0;
   margin: 0;
-  height: inherit;
-  background-color: rgb(197, 239, 247);
+  background-color: rgba(197, 239, 247, 0.6);
 }
-
-
-/*#users_all {
-  height: inherit;
-}
-
-#users_online {
-  height: inherit;
-}
-
-#users_offline {
-  height: inherit;
-}*/
 
 .online_color {
   border-radius: 100px;
@@ -115,17 +100,18 @@
 }
 
 .img_size {
-  height: 100px;
+  height: 80px;
   width: 80px;
+  border-radius: 50%;
   margin: auto;
 }
 
 .border-logo-online {
-  border: 3px solid rgb(21, 150, 22);
+  border: 5px solid rgb(21, 150, 22);
 }
 
 .border-logo-offline {
-  border: 3px solid rgba(247, 0, 0, 1);
+  border: 5px solid rgb(247, 0, 0);
 }
 
 .bg-success {
@@ -133,7 +119,7 @@
 }
 
 .bg-warning {
-  background-color: rgba(247, 0, 0, 1);
+  background-color: rgb(247, 0, 0);
 }
 
 .bg-inverse {
