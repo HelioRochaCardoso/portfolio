@@ -96,14 +96,14 @@ body {
 
 .online_color {
   border-radius: 100px;
-  background-color: green;
+  background-color: #33ff77;
   height: 20px;
   width: 20px;
 }
 
 .offline_color {
   border-radius: 100px;
-  background-color: red;
+  background-color: #ff3333;
   height: 20px;
   width: 20px;
 }
