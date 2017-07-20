@@ -71,10 +71,19 @@ body {
   cursor: pointer;
 }
 
+.active {
+  background-color: white;
+  color: black;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
 .status:hover {
   color: black;
   cursor: pointer;
-  background-color: white;
+  background-color: grey;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
 }
 
 #users {
@@ -124,10 +133,6 @@ body {
 
 .bg-inverse {
   background-color: rgb(27, 24, 24);
-}
-
-.text-white {
-  color: white;
 }
 
 .text-black {
