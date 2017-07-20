@@ -6,12 +6,12 @@ $(document).ready(function() {
   var api_version = "&v5+json";
   var users = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "hearthstonefr", "SevenS1ns"];
   var user_name, logo, url, game, bio, status, watching, followers, views;
-  var on_off = true;
+  var on_off = false;
 
   show_all();
 
   function show_all() {
-    if (on_off === true) {
+    if (on_off === false) {
       for (var i = 0; i < users.length; i++) {
         $.ajax({
           type: "GET",
@@ -42,7 +42,7 @@ $(document).ready(function() {
               "<hr style='width: 65%; border: 0.1em solid rgba(0,0,0,0.2); position: relative; left: 50px'>";
 
             $("#show_all").prepend(display_all);
-            on_off = false;
+            on_off = true;
           }
         });
       }
@@ -98,7 +98,7 @@ $(document).ready(function() {
   }
 
   function online() {
-    if (on_off === false) {
+    if (on_off === true) {
       for (var i = 0; i < users.length; i++) {
         $.ajax({
           type: "GET",
@@ -158,7 +158,7 @@ $(document).ready(function() {
                 "<hr style='width: 70%; border: 0.1em solid rgba(0,0,0,0.2); position: relative; left: 75px'>";
 
               $("#show_online").prepend(display_online);
-              on_off = true;
+              on_off = false;
             }
           }
         });
