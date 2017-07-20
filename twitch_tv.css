@@ -74,16 +74,16 @@ body {
 .active {
   background-color: white;
   color: black;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
 }
 
 .status:hover {
   color: black;
   cursor: pointer;
   background-color: grey;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
 }
 
 #users {
