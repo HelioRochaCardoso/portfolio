@@ -120,10 +120,9 @@ $(document).ready(function() {
               $("#show_offline").html("");
 
               // if number has at least 4 digits, use a comma to separate every 3 digits
-              watching.toString().length > 3 ? watching = watching.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : watching;
-              followers.toString().length > 3 ? followers = followers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : followers;
-              views.toString().length > 3 ? views = views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : views;
-
+              watching.toString().length > 3 ? watching = watching.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : "";
+              followers.toString().length > 3 ? followers = followers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : "";
+              views.toString().length > 3 ? views = views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : "";
               logo === null ? logo = "https\://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdy04kZumT1pU29S8uAUO9yrge0scZcDSyBZIoYRnnFWvcVwXF" : logo;
 
               var display_online = "<div class='row' style='padding-top: 35px; padding-left: 10px'>" +
