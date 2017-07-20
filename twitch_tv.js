@@ -6,12 +6,12 @@ $(document).ready(function() {
   var api_version = "&v5+json";
   var users = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "hearthstonefr", "SevenS1ns"];
   var user_name, logo, url, game, bio, status, watching, followers, views;
-  var on_off = false;
+  var on_off = true;
 
   show_all();
 
   function show_all() {
-    if (on_off === false) {
+    if (on_off === true) {
       for (var i = 0; i < users.length; i++) {
         $.ajax({
           type: "GET",
@@ -42,7 +42,7 @@ $(document).ready(function() {
               "<hr style='width: 65%; border: 0.1em solid rgba(0,0,0,0.2); position: relative; left: 50px'>";
 
             $("#show_all").prepend(display_all);
-            on_off = true;
+            on_off = false;
           }
         });
       }
@@ -50,7 +50,7 @@ $(document).ready(function() {
   }
 
   function offline() {
-    if (on_off === false) {
+    if (on_off === true) {
       for (var i = 0; i < users.length; i++) {
         $.ajax({
           type: "GET",
@@ -87,7 +87,7 @@ $(document).ready(function() {
                     "<hr style='width: 50%; border: 0.1em solid rgba(0,0,0,0.2); position: relative; left: 10px'>";
 
                   $("#show_offline").prepend(display_offline);
-                  on_off = true;
+                  on_off = false;
                 }
               });
             }
@@ -98,7 +98,7 @@ $(document).ready(function() {
   }
 
   function online() {
-    if (on_off === true) {
+    if (on_off === false) {
       for (var i = 0; i < users.length; i++) {
         $.ajax({
           type: "GET",
@@ -132,23 +132,23 @@ $(document).ready(function() {
                 "<div class='col-md-9'>" +
                 "<p class='text-justify text-center text-info'>" + user_name + "</p>" +
                 "<p class='text-black'><span class='text-success'><strong>Currently playing:</strong></span> <em><a href='" + url + "' target='_blank'><strong><em><span class='text-info'>" + game + "</span></em></strong></a></p>" +
-                "<div class='row text-center' style='position: relative; top: 10px'>" +
+                "<div class='row text-left' style='position: relative; top: 10px'>" +
                 "<div class='col-md-4'>" +
                 "<div>" +
-                "<p class='text-black'>Now watching</p>" +
-                "<p><em class='text-success text-center'>" + watching + "</em> <i class='fa fa-user fa-lg text-info' aria-hidden='true'></i></p>" +
-                "</div>" +
-                "</div>" +
-                "<div class='col-md-4'>" +
-                "<div>" +
-                "<p class='text-black'>Followers</p>" +
-                "<p><em class='text-success'>" + followers + "</em> <i class='fa fa-users fa-lg text-info' aria-hidden='true'></i></p>" +
+                "<p class='text-black text-center'>Now watching</p>" +
+                "<p class='text-center'><em class='text-success'>" + watching + "</em> <i class='fa fa-user fa-lg text-info' aria-hidden='true'></i></p>" +
                 "</div>" +
                 "</div>" +
                 "<div class='col-md-4'>" +
                 "<div>" +
-                "<p class='text-black'>Total Views</p>" +
-                "<p><em class='text-success'>" + views + "</em> <i class='fa fa-eye fa-lg text-info' aria-hidden='true'></i></p>" +
+                "<p class='text-black text-center'>Followers</p>" +
+                "<p class='text-center'><em class='text-success'>" + followers + "</em> <i class='fa fa-users fa-lg text-info' aria-hidden='true'></i></p>" +
+                "</div>" +
+                "</div>" +
+                "<div class='col-md-4'>" +
+                "<div>" +
+                "<p class='text-black text-center'>Total Views</p>" +
+                "<p class='text-center'><em class='text-success'>" + views + "</em> <i class='fa fa-eye fa-lg text-info' aria-hidden='true'></i></p>" +
                 "</div>" +
                 "</div>" +
                 "</div>" +
@@ -157,7 +157,7 @@ $(document).ready(function() {
                 "<hr style='width: 70%; border: 0.1em solid rgba(0,0,0,0.2); position: relative; left: 75px'>";
 
               $("#show_online").prepend(display_online);
-              on_off = false;
+              on_off = true;
             }
           }
         });
