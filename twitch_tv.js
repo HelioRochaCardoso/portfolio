@@ -166,14 +166,20 @@ $(document).ready(function() {
   }
 
   $("#all").on("click", function() {
+    $(".status").removeClass('active');
+    $(this).addClass('active');
     show_all();
   });
 
   $("#offline").on("click", function() {
+    $(".status").removeClass('active');
+    $(this).addClass('active');
     offline();
   });
 
   $("#online").on("click", function() {
+    $(".status").removeClass('active');
+    $(this).addClass('active');
     online();
   });
 
