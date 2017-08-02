@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   color: white;
   background: purple;
@@ -12,6 +16,8 @@ body {
   /* Standard syntax */
 }
 
+@media only screen and (max-width: 768px) {}
+
 .container-fluid {
   position: relative;
   padding: 0;
@@ -23,7 +29,7 @@ body {
 
 #inner_container {
   position: relative;
-  width: 600px;
+  width: 42vw;
   margin: auto;
   border-radius: 30px;
   margin-bottom: 45px;
@@ -33,7 +39,7 @@ body {
   background-color: rgba(36, 140, 128, 0.6);
   border-top-right-radius: 30px;
   border-top-left-radius: 30px;
-  height: 8em;
+  height: 20vh;
   position: relative;
   top: 0;
 }
@@ -51,39 +57,31 @@ body {
 }
 
 #online_icon {
-  color: green;
+  display: none;
 }
 
 #offline_icon {
-  color: red;
-}
-
-#searchInput {
-  visibility: hidden;
-  border-radius: 25px;
-  outline: 0;
-  color: black;
-}
-
-#searchBtn {
-  position: relative;
-  right: -140px;
-  cursor: pointer;
+  display: none;
 }
 
 .active {
   background-color: white;
   color: black;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
 }
 
 .status:hover {
   color: black;
   cursor: pointer;
   background-color: grey;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+}
+
+.activate {
+  color: black;
+  border-bottom: 1px solid black;
 }
 
 #users {
@@ -92,20 +90,6 @@ body {
   padding: 0;
   margin: 0;
   background-color: rgba(197, 239, 247, 0.6);
-}
-
-.online_color {
-  border-radius: 100px;
-  background-color: green;
-  height: 20px;
-  width: 20px;
-}
-
-.offline_color {
-  border-radius: 100px;
-  background-color: red;
-  height: 20px;
-  width: 20px;
 }
 
 .img_size {
