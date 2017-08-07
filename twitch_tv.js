@@ -11,9 +11,6 @@ $(document).ready(function() {
   show_all();
 
   function show_all() {
-    if ($(window).width() > 900) {
-      $("#all").addClass('active');
-    }
     for (var i = 0; i < users.length; i++) {
       $.ajax({
         type: "GET",
@@ -36,14 +33,14 @@ $(document).ready(function() {
           // assign standard status message if user has no status set
           status === null ? status = "No status available" : status;
 
-          var display_all = "<div class='row' style='padding-top: 25px'><div class='col-lg-3 col-md-3 col-xs-4'>" +
-            "<img class='img-responsive img_circle img_size' style='background-color: transparent' src='" + logo + "'></div>" +
-            "<div class='col-lg-9 col-md-9 col-xs-8'>" +
-            "<p class='text-justify'><a href='" + url + "' target='_blank'>" + user_name + "</a></p>" +
+          var display_all = "<div class='row' style='padding-top: 1.5em'><div class='col-lg-3 col-md-3 col-xs-4'>" +
+            "<img class='img-responsive img_size' style='background-color: transparent' src='" + logo + "'></div>" +
+            "<div class='col-lg-9 col-md-9 col-xs-8' style='width: 65%; padding: 0'>" +
+            "<p><a href='" + url + "' target='_blank'>" + user_name + "</a></p>" +
             "<p class='text-success'><strong>Status:<strong> <span class='text-black'><em>" + status + "</em></span></p>" +
             "</div>" +
             "</div>" +
-            "<hr style='width: 65%; border: 0.1em solid rgba(0,0,0,0.2); position: relative; left: 50px'>";
+            "<hr>";
 
           $("#show_all").prepend(display_all);
         }
@@ -79,14 +76,14 @@ $(document).ready(function() {
                 $("#show_online").html("");
                 $("#show_all").html("");
 
-                var display_offline = "<div class='row' style='padding-top: 25px; margin: 0'><div class='col-lg-3 col-md-3 col-xs-4'>" +
-                  "<img class='img-responsive img_circle img_size' style='background-color: transparent; border: 5px solid red' src='" + logo + "'></div>" +
+                var display_offline = "<div class='row' style='padding-top: 1.5em'><div class='col-lg-3 col-md-3 col-xs-4'>" +
+                  "<img class='img-responsive img_size' style='background-color: transparent; border: 0.5em solid red' src='" + logo + "'></div>" +
                   "<div class='col-lg-9 col-md-9 col-xs-8'>" +
                   "<p class='text-justify text-black'><a href='" + url + "' target='_blank'>" + user_name + "</a></p>" +
-                  "<p class='text-black' style='position: relative; top: 20px'><strong>Currently</strong> <span style='color: red'><strong><em>Offline</em></strong></span></p>" +
+                  "<p class='text-black' style='position: relative; top: 1.2em'><strong>Currently</strong> <span style='color: red'><strong><em>Offline</em></strong></span></p>" +
                   "</div>" +
                   "</div>" +
-                  "<hr style='width: 50%; border: 0.1em solid rgba(0,0,0,0.2); position: relative; left: 10px'>";
+                  "<hr>";
 
                 $("#show_offline").prepend(display_offline);
               }
@@ -125,14 +122,14 @@ $(document).ready(function() {
             views.toString().length > 3 ? views = views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : "";
             logo === null ? logo = "https\://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdy04kZumT1pU29S8uAUO9yrge0scZcDSyBZIoYRnnFWvcVwXF" : logo;
 
-            var display_online = "<div class='row' style='padding-top: 35px; padding-left: 10px'>" +
-              "<div class='col-lg-3 col-md-3 col-xs-4 text-center' style='padding-top: 15px'>" +
-              "<img class='img-responsive img_circle img_size border-logo-online' style='background-color: transparent; position: relative; bottom: 5px' src='" + logo + "'>" +
+            var display_online = "<div class='row' style='padding-top: 1.5em'>" +
+              "<div class='col-lg-3 col-md-3 col-xs-4 text-center'>" +
+              "<img class='img-responsive img_size border-logo-online' style='background-color: transparent' src='" + logo + "'>" +
               "</div>" +
               "<div class='col-lg-9 col-md-9 col-xs-8'>" +
               "<p class='text-justify text-center text-info'>" + user_name + "</p>" +
               "<p class='text-black'><span class='text-success'><strong>Currently playing:</strong></span> <em><a href='" + url + "' target='_blank'><strong><em><span class='text-info'>" + game + "</span></em></strong></a></p>" +
-              "<div class='row text-left' style='position: relative; top: 10px'>" +
+              "<div class='row text-left' style='position: relative; top: 1em; left: -1.3em'>" +
               "<div class='col-lg-4 col-md-4 col-xs-4'>" +
               "<div>" +
               "<p class='text-black text-center'>Now watching</p>" +
@@ -154,7 +151,7 @@ $(document).ready(function() {
               "</div>" +
               "</div>" +
               "</div>" +
-              "<hr style='width: 70%; border: 0.1em solid rgba(0,0,0,0.2); position: relative; left: 75px'>";
+              "<hr>";
 
             $("#show_online").prepend(display_online);
           }
@@ -167,10 +164,12 @@ $(document).ready(function() {
     if ($(window).width() > 900 || $(document).width() > 900) {
       $(".status").removeClass('active');
       $(this).addClass("active");
-      $("#online_icon").css("display", "none");
-      $("#offline_icon").css("display", "none");
-    } else {
-      $(".status").removeClass("activate");
+      $("#online_icon").fadeOut("slow");
+      $("#offline_icon").fadeOut("slow");
+    } else if ($(window).width() < 500 || $(document).width() < 500) {
+      $(".status").removeClass("activate status");
+      $("#online").removeClass("activate");
+      $("#offline").removeClass("activate");
       $(this).addClass("activate");
     }
 
@@ -182,18 +181,18 @@ $(document).ready(function() {
     if ($(window).width() > 900 || $(document).width() > 900) {
       $(".status").removeClass('active');
       // if user clicks on other tabs online symbol disapears
-      $("#online_icon").css("display", "none");
+      $("#online_icon").fadeOut("slow");
       $(this).addClass("active");
-      $("#offline_icon").fadeIn("slow").css({
-        "position": "absolute",
-        "left": "50px",
-        "height": "10px",
-        "width": "10px",
-        "color": "red"
-      });
-    } else {
-      $(".status").removeClass("activate");
+      $("#offline_icon").fadeIn("slow");
+    } else if ($(window).width() < 500 || $(document).width() < 500) {
+      $(".status").removeClass("activate status");
+      $("#all").removeClass("activate");
+      $("#online").removeClass("activate");
       $(this).addClass("activate");
+      $("hr").css({
+        "position": "relative",
+        "left": "20em"
+      });
     }
 
     offline();
@@ -204,18 +203,18 @@ $(document).ready(function() {
     if ($(window).width() > 900 || $(document).width() > 900) {
       $(".status").removeClass("active");
       // if user clicks on other tabs offline symbol disapears
-      $("#offline_icon").css("display", "none");
+      $("#offline_icon").fadeOut("slow");
       $(this).addClass("active");
-      $("#online_icon").fadeIn("slow").css({
-        "position": "absolute",
-        "left": "50px",
-        "height": "10px",
-        "width": "10px",
-        "color": "green"
-      });
-    } else {
-      $(".status").removeClass("activate");
+      $("#online_icon").fadeIn("slow");
+    } else if ($(window).width() < 500 || $(document).width() < 500) {
+      $(".status").removeClass("activate status");
+      $("#all").removeClass("activate");
+      $("#offline").removeClass("activate");
       $(this).addClass("activate");
+      $("hr").css({
+        "position": "relative",
+        "left": "2em"
+      });
     }
 
     online();
