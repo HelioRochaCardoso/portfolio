@@ -10,7 +10,7 @@ $(document).ready(function() {
     var binary_toggle = true,
         numbers_toggle = true,
         game_mode_toggle = false;
-    var final_value = parseInt($("#user_count").val());
+    var final_value = 0;
     var random_num_gen = 0;
 
     // $(function() {

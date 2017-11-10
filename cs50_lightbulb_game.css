@@ -1,334 +1,344 @@
-    @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
-    @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
-    @import url('https://fonts.googleapis.com/css?family=Merriweather+Sans');
-    @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-    * {
-        margin: 0;
-        padding: 0;
+/* comment to be deleted */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+@import url('https://fonts.googleapis.com/css?family=Merriweather+Sans');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(rgba(173, 108, 22, 0.45)));
+    background-image: -webkit-linear-gradient(top, white, rgba(173, 108, 22, 0.45));
+    background-image: -moz-linear-gradient(top, white, rgba(173, 108, 22, 0.45));
+    background-image: linear-gradient(to bottom, white, rgba(173, 108, 22, 0.45));
+    overflow: hidden;
+    height: 100vh;
+}
+
+#main_container {
+    padding: 30px 50px 0px;
+    display: flex;
+    justify-content: center;
+}
+
+#bulb_container {
+    position: relative;
+    top: -20px;
+}
+
+.images {
+    display: inline-block;
+    text-align: center;
+    width: 100px;
+    position: relative;
+    left: 40px;
+}
+
+.images:not(:last-child) {
+    margin-right: 50px;
+}
+
+.number {
+    font-size: 1.5em;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.number input {
+    visibility: hidden;
+}
+
+.binary {
+    font-size: 2em;
+    font-family: 'Merriweather Sans', sans-serif;
+}
+
+.top {
+    z-index: 1;
+}
+
+.bulb:hover {
+    cursor: pointer;
+}
+
+.bottom {
+    opacity: 0;
+    position: absolute;
+    top: 84.5px;
+    left: 0;
+    z-index: -1;
+}
+
+
+/* Standard syntax */
+
+@keyframes bulbsToggle {
+    from {
+        opacity: 1;
     }
-    
-    body {
-        background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(rgba(173, 108, 22, 0.45)));
-        background-image: -webkit-linear-gradient(top, white, rgba(173, 108, 22, 0.45));
-        background-image: -moz-linear-gradient(top, white, rgba(173, 108, 22, 0.45));
-        background-image: linear-gradient(to bottom, white, rgba(173, 108, 22, 0.45));
-        overflow: hidden;
-        height: 100vh;
-    }
-    
-    #main_container {
-        padding: 30px 50px 0px;
-        display: flex;
-        justify-content: center;
-    }
-    
-    #bulb_container {
-        position: relative;
-        top: -20px;
-    }
-    
-    .images {
-        display: inline-block;
-        text-align: center;
-        width: 100px;
-        position: relative;
-        left: 40px;
-    }
-    
-    .images:not(:last-child) {
-        margin-right: 50px;
-    }
-    
-    .number {
-        font-size: 1.5em;
-        font-family: 'Josefin Sans', sans-serif;
-    }
-    
-    .number input {
-        visibility: hidden;
-    }
-    
-    .binary {
-        font-size: 2em;
-        font-family: 'Merriweather Sans', sans-serif;
-    }
-    
-    .top {
-        z-index: 1;
-    }
-    
-    .bulb:hover {
-        cursor: pointer;
-    }
-    
-    .bottom {
+    to {
         opacity: 0;
-        position: absolute;
-        top: 84.5px;
-        left: 0;
-        z-index: -1;
     }
-    /* Standard syntax */
-    
-    @keyframes bulbsToggle {
-        from {
-            opacity: 1;
-        }
-        to {
-            opacity: 0;
-        }
+}
+
+
+/* Safari 4.0 - 8.0 */
+
+@-webkit-keyframes bulbsToggle {
+    from {
+        opacity: 1;
     }
-    /* Safari 4.0 - 8.0 */
-    
-    @-webkit-keyframes bulbsToggle {
-        from {
-            opacity: 1;
-        }
-        to {
-            opacity: 0;
-        }
+    to {
+        opacity: 0;
     }
-    
-    @keyframes bulbsToggle2 {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
+}
+
+@keyframes bulbsToggle2 {
+    from {
+        opacity: 0;
     }
-    
-    @-webkit-keyframes bulbsToggle2 {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
+    to {
+        opacity: 1;
     }
-    
-    #minus_plus {
-        position: relative;
-        top: 80px;
-        /* fix minus and plus functionality then restore top below */
-        /* top: -50px; */
+}
+
+@-webkit-keyframes bulbsToggle2 {
+    from {
+        opacity: 0;
     }
-    
-    #minus {
-        position: relative;
-        top: 100px;
-        right: 100px;
-        font-size: 22px;
-        height: 85px;
-        line-height: 70px;
-        /* fix minus and plus functionality then delete display:none */
-        display: none;
+    to {
+        opacity: 1;
     }
-    
-    #plus {
-        position: relative;
-        top: -85px;
-        left: 100px;
-        font-size: 22px;
-        height: 85px;
-        line-height: 70px;
-        /* fix minus and plus functionality then delete display:none */
-        display: none;
-    }
-    
-    .glyphicon-minus,
-    .glyphicon-plus {
-        position: relative;
-        top: 30px;
-    }
-    
-    #minus:hover>.glyphicon-minus,
-    #plus:hover>.glyphicon-plus {
-        color: rgb(20%, 71.4%, 60.3%);
-        cursor: pointer;
-    }
-    
-    #user_count {
-        text-align: center;
-        font-size: 5em;
-        width: 180px;
-        background-color: transparent;
-        border: 0px;
-        -webkit-user-select: none;
-        /* Chrome/Safari */
-        -moz-user-select: none;
-        /* Firefox */
-        -ms-user-select: none;
-        /* IE10+ */
-    }
-    
-    #game_mode_num {
-        position: relative;
-        top: 90px;
-        /* fix minus and plus functionality then restore top: -80px below */
-        /* top: -80px; */
-        line-height: 0px;
-        text-align: center;
-        font-size: 16px;
-    }
-    
-    #settings {
-        position: relative;
-        top: 140px;
-        /* fix minus and plus functionality then restore top: -40px */
-        /* top: -40px; */
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        text-align: center;
-    }
-    
-    #settings figcaption {
-        font-weight: 900;
-        font-family: 'Open Sans', sans-serif;
-    }
-    
-    #modal {
-        /* Hidden by default */
-        display: none;
-        /* Sits on top of everything */
-        z-index: 1;
-        position: fixed;
-        top: 0;
-        /* scrool if necessary */
-        overflow: auto;
-        background-color: rgba(0, 0, 0, 0.4);
-        width: 100%;
-        height: 100%;
-    }
-    
-    #modal_content {
-        background-color: white;
-        position: relative;
-        top: 180px;
-        width: 50%;
-        height: 110px;
-        margin: auto;
-        box-shadow: 5px 5px 2px black;
-        font-weight: 900;
-        font-family: 'Open Sans', sans-serif;
-        border-radius: 10px;
-    }
-    
-    #modal_header {
-        background-color: rgb(52, 138, 123);
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        padding: 0;
-    }
-    
-    #modal_header p {
-        position: relative;
-        top: -20px;
-    }
-    
-    #modal_close {
-        z-index: 2;
-        position: relative;
-        left: 320px;
-        top: 0;
-        font-size: 32px;
-        overflow: auto;
-    }
-    
-    #modal_close:hover {
-        cursor: pointer;
-        color: red;
-    }
-    
-    #modal2 {
-        /* Hidden by default */
-        display: none;
-        /* Sits on top of everything */
-        z-index: 1;
-        position: fixed;
-        top: 0;
-        /* scrool if necessary */
-        overflow: auto;
-        background-color: rgba(0, 0, 0, 0.4);
-        width: 100%;
-        height: 100%;
-    }
-    
-    #modal2_content {
-        background-color: rgb(140, 168, 162);
-        position: relative;
-        top: 265px;
-        /* fix minus and plus functionality then resstore top: 250px below */
-        /* top: 250px; */
-        height: 80px;
-        /* fix minus and plus functionality then restore top: 380px and height: 110px below */
-        /* top: 380px; */
-        width: 50%;
-        /* height: 110px; */
-        margin: auto;
-        box-shadow: 5px 5px 2px black;
-        font-weight: 900;
-        font-family: 'Open Sans', sans-serif;
-        border-radius: 10px;
-    }
-    
-    #modal2_body p {
-        line-height: 110px;
-        font-size: 36px;
-        font-weight: 900;
-    }
-    
-    #footer {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-    }
-    
-    #footer p {
-        font-family: 'Roboto Condensed', sans-serif;
-        text-align: center;
-    }
-    /* code from w3schools */
-    
-    .switch {
-        position: relative;
-        display: inline-block;
-        width: 60px;
-        height: 34px;
-    }
-    
-    .switch input {
-        display: none;
-    }
-    
-    .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        -webkit-transition: .4s;
-        transition: .4s;
-    }
-    
-    .slider:before {
-        position: absolute;
-        content: "";
-        font-size: 11px;
-        font-weight: bolder;
-        padding-top: 5px;
-        height: 26px;
-        width: 26px;
-        left: 4px;
-        bottom: 4px;
-        background-color: white;
-        -webkit-transition: .4s;
-        transition: .4s;
-    }
-    /* .slider2 {
+}
+
+#minus_plus {
+    position: relative;
+    top: 80px;
+    /* fix minus and plus functionality then restore top below */
+    /* top: -50px; */
+}
+
+#minus {
+    position: relative;
+    top: 100px;
+    right: 100px;
+    font-size: 22px;
+    height: 85px;
+    line-height: 70px;
+    /* fix minus and plus functionality then delete display:none */
+    display: none;
+}
+
+#plus {
+    position: relative;
+    top: -85px;
+    left: 100px;
+    font-size: 22px;
+    height: 85px;
+    line-height: 70px;
+    /* fix minus and plus functionality then delete display:none */
+    display: none;
+}
+
+.glyphicon-minus,
+.glyphicon-plus {
+    position: relative;
+    top: 30px;
+}
+
+#minus:hover>.glyphicon-minus,
+#plus:hover>.glyphicon-plus {
+    color: rgb(20%, 71.4%, 60.3%);
+    cursor: pointer;
+}
+
+#user_count {
+    text-align: center;
+    font-size: 5em;
+    width: 180px;
+    background-color: transparent;
+    border: 0px;
+    -webkit-user-select: none;
+    /* Chrome/Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+ */
+}
+
+#game_mode_num {
+    position: relative;
+    top: 90px;
+    /* fix minus and plus functionality then restore top: -80px below */
+    /* top: -80px; */
+    line-height: 0px;
+    text-align: center;
+    font-size: 16px;
+}
+
+#settings {
+    position: relative;
+    top: 140px;
+    /* fix minus and plus functionality then restore top: -40px */
+    /* top: -40px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+}
+
+#settings figcaption {
+    font-weight: 900;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#modal {
+    /* Hidden by default */
+    display: none;
+    /* Sits on top of everything */
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    /* scrool if necessary */
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+}
+
+#modal_content {
+    background-color: white;
+    position: relative;
+    top: 180px;
+    width: 50%;
+    height: 110px;
+    margin: auto;
+    box-shadow: 5px 5px 2px black;
+    font-weight: 900;
+    font-family: 'Open Sans', sans-serif;
+    border-radius: 10px;
+}
+
+#modal_header {
+    background-color: rgb(52, 138, 123);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 0;
+}
+
+#modal_header p {
+    position: relative;
+    top: -20px;
+}
+
+#modal_close {
+    z-index: 2;
+    position: relative;
+    left: 320px;
+    top: 0;
+    font-size: 32px;
+    overflow: auto;
+}
+
+#modal_close:hover {
+    cursor: pointer;
+    color: red;
+}
+
+#modal2 {
+    /* Hidden by default */
+    display: none;
+    /* Sits on top of everything */
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    /* scrool if necessary */
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+}
+
+#modal2_content {
+    background-color: rgb(140, 168, 162);
+    position: relative;
+    top: 265px;
+    /* fix minus and plus functionality then resstore top: 250px below */
+    /* top: 250px; */
+    height: 80px;
+    /* fix minus and plus functionality then restore top: 380px and height: 110px below */
+    /* top: 380px; */
+    width: 50%;
+    /* height: 110px; */
+    margin: auto;
+    box-shadow: 5px 5px 2px black;
+    font-weight: 900;
+    font-family: 'Open Sans', sans-serif;
+    border-radius: 10px;
+}
+
+#modal2_body p {
+    line-height: 110px;
+    font-size: 36px;
+    font-weight: 900;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+#footer p {
+    font-family: 'Roboto Condensed', sans-serif;
+    text-align: center;
+}
+
+
+/* code from w3schools */
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    font-size: 11px;
+    font-weight: bolder;
+    padding-top: 5px;
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+
+/* .slider2 {
         position: absolute;
         cursor: pointer;
         top: 0;
@@ -376,27 +386,31 @@
         -ms-transform: translateX(-26px);
         transform: translateX(-26px);
     } */
-    
-    input:checked+.slider {
-        background-color: #2196F3;
-    }
-    
-    input:focus+.slider {
-        box-shadow: 0 0 1px #2196F3;
-    }
-    
-    input:checked+.slider:before {
-        -webkit-transform: translateX(26px);
-        -ms-transform: translateX(26px);
-        transform: translateX(26px);
-    }
-    /* Rounded sliders */
-    
-    .slider.round {
-        border-radius: 34px;
-    }
-    
-    .slider.round:before {
-        border-radius: 50%;
-    }
-    /* code from w3schools */
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+
+/* Rounded sliders */
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+
+/* code from w3schools */
