@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Binary Bulb Game</title>
+    <link rel="stylesheet" type="text/css" href="cs50_lightbulb_game.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://use.fontawesome.com/d81fb7d455.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="cs50_lightbulb_game.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid" id="main_container">
+        <div id="bulb_container">
+
+            <!-- <div id="bulbs_info">
+                <i class="fa fa-info-circle" aria-hidden="true"></i>
+            </div> -->
+
+            <figure class="images">
+                <figcaption class="number">
+                    <input class="numVal">128
+                </figcaption>
+                <br/>
+                <img src="https://image.flaticon.com/icons/svg/248/248093.svg" alt="Light Bulb Off" id="bulb1" class="bulb top">
+                <img src="https://image.flaticon.com/icons/svg/222/222546.svg" alt="Light Bulb On" id="bulb_bottom1" class="bottom">
+                <br/>
+                <br/>
+                <figcaption class="binary" id="binary1" title="Binary digit used by computers">0</figcaption>
+            </figure>
+
+            <figure class="images">
+                <figcaption class="number">
+                    <input class="numVal">64
+                </figcaption>
+                <br/>
+                <img src="https://image.flaticon.com/icons/svg/248/248093.svg" alt="Light Bulb Off" id="bulb2" class="bulb top">
+                <img src="https://image.flaticon.com/icons/svg/222/222546.svg" alt="Light Bulb On" id="bulb_bottom2" class="bottom">
+                <br/>
+                <br/>
+                <figcaption class="binary" id="binary2" title="Binary digit used by computers">0</figcaption>
+            </figure>
+
+            <figure class="images">
+                <figcaption class="number">
+                    <input class="numVal">32
+                </figcaption>
+                <br/>
+                <img src="https://image.flaticon.com/icons/svg/248/248093.svg" alt="Light Bulb Off" id="bulb3" class="bulb top">
+                <img src="https://image.flaticon.com/icons/svg/222/222546.svg" alt="Light Bulb On" id="bulb_bottom3" class="bottom">
+                <br/>
+                <br/>
+                <figcaption class="binary" id="binary3" title="Binary digit used by computers">0</figcaption>
+            </figure>
+
+            <figure class="images">
+                <figcaption class="number">
+                    <input class="numVal">16
+                </figcaption>
+                <br/>
+                <img src="https://image.flaticon.com/icons/svg/248/248093.svg" alt="Light Bulb Off" id="bulb4" class="bulb top">
+                <img src="https://image.flaticon.com/icons/svg/222/222546.svg" alt="Light Bulb On" id="bulb_bottom4" class="bottom">
+                <br/>
+                <br/>
+                <figcaption class="binary" id="binary4" title="Binary digit used by computers">0</figcaption>
+            </figure>
+
+            <figure class="images">
+                <figcaption class="number">
+                    <input class="numVal">8
+                </figcaption>
+                <br/>
+                <img src="https://image.flaticon.com/icons/svg/248/248093.svg" alt="Light Bulb Off" id="bulb5" class="bulb top">
+                <img src="https://image.flaticon.com/icons/svg/222/222546.svg" alt="Light Bulb On" id="bulb_bottom5" class="bottom">
+                <br/>
+                <br/>
+                <figcaption class="binary" id="binary5" title="Binary digit used by computers">0</figcaption>
+            </figure>
+
+            <figure class="images">
+                <figcaption class="number">
+                    <input class="numVal">4
+                </figcaption>
+                <br/>
+                <img src="https://image.flaticon.com/icons/svg/248/248093.svg" alt="Light Bulb Off" id="bulb6" class="bulb top">
+                <img src="https://image.flaticon.com/icons/svg/222/222546.svg" alt="Light Bulb On" id="bulb_bottom6" class="bottom">
+                <br/>
+                <br/>
+                <figcaption class="binary" id="binary6" title="Binary digit used by computers">0</figcaption>
+            </figure>
+
+            <figure class="images">
+                <figcaption class="number">
+                    <input class="numVal">2
+                </figcaption>
+                <br/>
+                <img src="https://image.flaticon.com/icons/svg/248/248093.svg" alt="Light Bulb Off" id="bulb7" class="bulb top">
+                <img src="https://image.flaticon.com/icons/svg/222/222546.svg" alt="Light Bulb On" id="bulb_bottom7" class="bottom">
+                <br/>
+                <br/>
+                <figcaption class="binary" id="binary7" title="Binary digit used by computers">0</figcaption>
+            </figure>
+
+            <figure class="images">
+                <figcaption class="number">
+                    <input class="numVal">1
+                </figcaption>
+                <br/>
+                <img src="https://image.flaticon.com/icons/svg/248/248093.svg" alt="Light Bulb Off" id="bulb8" class="bulb top">
+                <img src="https://image.flaticon.com/icons/svg/222/222546.svg" alt="Light Bulb On" id="bulb_bottom8" class="bottom">
+                <br/>
+                <br/>
+                <figcaption class="binary" id="binary8" title="Binary digit used by computers">0</figcaption>
+            </figure>
+
+            <figure id="minus_plus" class="text-center">
+                <div type="button" class="btn btn-default" id="minus" title="Decrease value">
+                    <i class="glyphicon glyphicon-minus" aria-hidden="true"></i>
+                </div>
+                <figcaption>
+                    <input id="user_count" value="0" disabled>
+                </figcaption>
+                <div type="button" class="btn btn-default" id="plus" title="Increase value">
+                    <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
+                </div>
+            </figure>
+
+            <p id="game_mode_num"></p>
+
+            <div id="settings">
+                <figure id="game_mode">
+                    <figcaption>Game Mode</figcaption>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </figure>
+
+                <div id="modal">
+                    <div id="modal_content">
+                        <div id="modal_header">
+                            <span id="modal_close">&times</span>
+                            <p>Game Mode is On</p>
+                        </div>
+                        <p>How would you represent the number &nbsp;<span id="random_number"></span></p>
+                    </div>
+                </div>
+
+                <div id="modal2">
+                    <div id="modal2_content">
+                        <div id="modal2_body">
+                            <p>Congratulations! You won!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <figure id="num_display">
+                    <figcaption>Number Display</figcaption>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </figure>
+
+                <figure id="binary_code">
+                    <figcaption>Binary Digits</figcaption>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </figure>
+
+            </div>
+        </div>
+
+        <div id="footer">
+            <p>Educationally created by Helio Cardoso and based on Harvard CS50 program on <a href="https://www.edx.org/course/introduction-computer-science-harvardx-cs50x" target="_blank">Edx</a></p>
+        </div>
+    </div>
+</body>
+
+</html>
