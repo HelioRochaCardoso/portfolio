@@ -1,87 +1,136 @@
 @import url('https://fonts.googleapis.com/css?family=Boogaloo');
-
 @import url('https://fonts.googleapis.com/css?family=Satisfy');
-
 body {
-  background: #6699ff; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left, #00cc99, #6699ff); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(left, #00cc99, #6699ff); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(left, #00cc99, #6699ff); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(left, #00cc99, #6699ff); /* Standard syntax */
+    background: #6699ff;
+    /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, #00cc99, #6699ff);
+    /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(left, #00cc99, #6699ff);
+    /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(left, #00cc99, #6699ff);
+    /* For Firefox 3.6 to 15 */
+    background: linear-gradient(left, #00cc99, #6699ff);
+    /* Standard syntax */
+    overflow: hidden;
 }
 
 #hover_here {
-  position: relative;
-  height: 30%;
-  /*width: 30%;*/
-  margin: auto;
-  margin-top: 50px;
-  color: green;
+    position: relative;
+    height: 30%;
+    top: 250px;
+    color: green;
+    font-size: 1.5em;
 }
 
-header {
-  position: relative;
-  color: white;
-  font-size: 1.5em;
-  top: 200px;
+#title {
+    position: relative;
+    color: white;
+    font-size: 1.5em;
+    top: 200px;
 }
 
-article {
-  margin-top: 5px;
-  display: none;
-  margin: 30px 175px 0px 175px;
+@media screen and (min-width: 600px) {
+    @keyframes arrow_move {
+        0% {
+            color: black;
+            left: 50px;
+        }
+        100% {
+            color: rgb(223, 93, 93);
+            left: 15px;
+        }
+    }
+    @-webkit-keyframes arrow_move {
+        0% {
+            color: black;
+            left: 50px;
+        }
+        100% {
+            color: rgb(223, 93, 93);
+            left: 15px;
+        }
+    }
+    .fa-angle-left {
+        position: fixed;
+        top: 315px;
+        height: 50%;
+        color: black;
+        z-index: 2;
+        animation: arrow_move 1s ease-in 0s infinite alternate;
+        -webkit-animation: arrow_move 1s ease-in 0s infinite alternate;
+    }
 }
 
-.jumbotron {
-  background: #b3ffff;
-  padding: 25px;
+#body {
+    position: relative;
+    top: 160px;
+    display: none;
+    width: 900px;
+    /* margin: 30px 175px 0px 175px; */
+    margin: auto;
+    background: #b3ffff;
+    padding: 25px;
+}
+
+#buttons {
+    position: relative;
+    top: 10px;
 }
 
 #quote {
-  font-family: 'Boogaloo', cursive;
-  font-size: 1.5em;
+    font-family: 'Boogaloo', cursive;
+    font-size: 1.5em;
 }
 
 #name {
-  font-family: 'Satisfy', cursive;
-  font-size: 2em;
-  margin-top: 10px;
+    font-family: 'Satisfy', cursive;
+    font-size: 2em;
+    margin-top: 10px;
 }
 
 img {
-  /*max-width: 100%;*/
-  max-height: 100%;
-  border-radius: 20px;
-  width: calc(100%/2);
-  /*height: calc(10%/2);*/
-  margin-right: auto;
-  margin-left: auto;
-  display: block;
+    /*max-width: 100%;*/
+    max-height: 100%;
+    border-radius: 20px;
+    width: calc(100%/2);
+    /*height: calc(10%/2);*/
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
 }
 
 #getQuote {
-  font-size: 18px;
-  cursor: pointer;
+    font-size: 18px;
+    cursor: pointer;
 }
 
 #getQuote:hover {
-  background: #0099ff;
-  color: white;
+    background: #0099ff;
+    color: white;
 }
 
 #twitter {
-  position: relative;
-  font-size: 18px;
-  cursor: pointer;
-  display: hide;
+    position: relative;
+    font-size: 18px;
+    cursor: pointer;
+    display: hide;
 }
 
 #twitter:hover {
-  color: #0099ff;
+    color: #0099ff;
 }
 
-footer {
-  color: white;
-  margin-top: 170px;
-  visibility: hidden;
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+#footer strong {
+    line-height: 50px;
+}
+
+#footer a {
+    color: white;
+    text-decoration: none;
 }

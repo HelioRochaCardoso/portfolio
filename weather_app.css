@@ -1,109 +1,141 @@
 body {
-  height: 100vh;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+    height: 100vh;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 nav {
-  background-color: rgba(0, 153, 51, 0.3);
+    background-color: rgba(0, 153, 51, 0.3);
 }
 
 nav div div:first-child {
-  text-align: center;
-  line-height: 100%;
+    text-align: center;
+    line-height: 100%;
 }
 
 nav div div:last-child {
-  text-align: center;
-  line-height: 100%;
+    text-align: center;
+    line-height: 100%;
 }
 
 #marker {
-  position: relative;
-  top: 38px;
-  left: -10px;
-  display: flex;
-  flex-wrap: nowrap;
-  /*line-height: 250%;*/
-  color: orange;
+    position: relative;
+    top: 38px;
+    left: -10px;
+    display: flex;
+    flex-wrap: nowrap;
+    /*line-height: 250%;*/
+    color: orange;
 }
 
 #city_info {
-  color: white;
-  font-size: 5vh;
-  position: relative;
-  top: -10px;
-  float: left;
+    color: white;
+    font-size: 5vh;
+    position: relative;
+    top: -10px;
+    float: left;
 }
 
 #date {
-  color: white;
-  position: relative;
-  top: 15px;
-  float: right;
+    color: white;
+    position: relative;
+    top: 15px;
+    float: right;
+}
+
+@media screen and (min-width: 600px) {
+    @keyframes arrow_move {
+        0% {
+            color: black;
+            left: 50px;
+        }
+        100% {
+            color: rgb(223, 93, 93);
+            left: 15px;
+        }
+    }
+    @-webkit-keyframes arrow_move {
+        0% {
+            color: black;
+            left: 50px;
+        }
+        100% {
+            color: rgb(223, 93, 93);
+            left: 15px;
+        }
+    }
+    .fa-angle-left {
+        position: fixed;
+        top: 315px;
+        height: 50%;
+        color: black;
+        z-index: 2;
+        animation: arrow_move 1s ease-in 0s infinite alternate;
+        -webkit-animation: arrow_move 1s ease-in 0s infinite alternate;
+    }
 }
 
 #weather_description {
-  color: orange;
+    color: orange;
 }
 
 #weather_container {
-  top: 50px;
+    top: 50px;
 }
 
 #icon1 {
-  position: relative;
-  display: block;
-  margin: auto;
-  top: -5px;
+    position: relative;
+    display: block;
+    margin: auto;
+    top: -5px;
 }
 
 #weather_stats_container {
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 20px;
-  width: 47vw;
-  margin: auto;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    width: 47vw;
+    margin: auto;
 }
 
 .stats {
-  font-weight: 900;
+    font-weight: 900;
 }
 
 #temp_toggle {
-  cursor: pointer;
-  color: white;
-  padding: 5px;
-  float: left;
-  margin-left: -15px;
-  border-radius: 20px 0px 0px 20px;
-  background-color: rgba(0, 153, 51, 0.3);
-  width: 30px;
-  height: 50px;
+    cursor: pointer;
+    color: white;
+    padding: 5px;
+    float: left;
+    margin-left: -15px;
+    border-radius: 20px 0px 0px 20px;
+    background-color: rgba(0, 153, 51, 0.3);
+    width: 30px;
+    height: 50px;
 }
 
 #temp_toggle:hover {
-  background-color: #003d99;
+    background-color: #003d99;
 }
 
 #temp_toggle:focus {
-  outline: 0;
+    outline: 0;
 }
 
 #last_update {
-  font-size: 12px;
-  color: orange;
-  font-weight: 600;
+    font-size: 12px;
+    color: orange;
+    font-weight: 600;
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
 footer p {
-  line-height: 25px;
+    line-height: 25px;
 }

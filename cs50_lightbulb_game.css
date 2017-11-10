@@ -22,6 +22,38 @@
         justify-content: center;
     }
     
+    @media screen and (min-width: 600px) {
+        @keyframes arrow_move {
+            0% {
+                color: black;
+                left: 50px;
+            }
+            100% {
+                color: rgb(223, 93, 93);
+                left: 15px;
+            }
+        }
+        @-webkit-keyframes arrow_move {
+            0% {
+                color: black;
+                left: 50px;
+            }
+            100% {
+                color: rgb(223, 93, 93);
+                left: 15px;
+            }
+        }
+        .fa-angle-left {
+            position: fixed;
+            top: 315px;
+            height: 50%;
+            color: black;
+            z-index: 2;
+            animation: arrow_move 1s ease-in 0s infinite alternate;
+            -webkit-animation: arrow_move 1s ease-in 0s infinite alternate;
+        }
+    }
+    
     #bulb_container {
         position: relative;
         top: -20px;
