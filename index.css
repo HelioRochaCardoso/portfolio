@@ -1,11 +1,27 @@
-@import url('https://fonts.googleapis.com/css?family=Pacifico');
-@import url('https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed');
-@import url('https://fonts.googleapis.com/css?family=Ranchers');
-@import url('https://fonts.googleapis.com/css?family=Bree+Serif');
-@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+/* @import url('https://fonts.googleapis.com/css?family=Pacifico'); */
+
+
+/* @import url('https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed'); */
+
+
+/* @import url('https://fonts.googleapis.com/css?family=Ranchers'); */
+
+
+/* @import url('https://fonts.googleapis.com/css?family=Bree+Serif'); */
+
+
+/* @import url('https://fonts.googleapis.com/css?family=Varela+Round&effect=3d-float'); */
+
+
+/* @import url('https://fonts.googleapis.com/css?family=Roboto'); */
+
+
+/* @import url('https://fonts.googleapis.com/css?family=Comfortaa'); */
+
 body {
     min-height: 100vh;
     color: white;
+    font-family: 'Comfortaa', cursive;
 }
 
 #main_container {
@@ -98,21 +114,27 @@ nav {
     top: 200px;
     left: 50px;
     width: 50%;
-    /* margin: auto; */
     text-align: left;
-    color: black;
-    font-family: 'Varela Round', sans-serif;
+    /* color: black; */
+}
+
+.home_container h1 {
+    /* font-weight: 700; */
+    /* color: black; */
 }
 
 .home_container p {
     font-size: 15px;
     font-family: 'Ranchers', cursive;
+    color: black;
 }
 
 .home_container span {
+    position: relative;
+    top: 5px;
     font-family: 'Bree Serif', serif;
     font-size: 52px;
-    color: red;
+    color: #2979ff;
 }
 
 #about {
