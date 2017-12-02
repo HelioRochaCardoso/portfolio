@@ -14,8 +14,8 @@
 
 <body>
     <div class="container-fluid">
-        <h4 id="title" class="text-center text-uppercase">Random Quote Machine</h4>
-        <p id="hover_here" class="text-center text-uppercase">Hover the mouse here!</p>
+        <h4 id="title" class="text-uppercase">Random Quote Machine</h4>
+        <p id="hover_here" class="text-uppercase">Hover the mouse here!</p>
         <br>
         <div id="back">
             <a href="index.html">
@@ -25,9 +25,28 @@
 
         <div id="body">
             <div id="intro" class="lead text-center">
-                <p>Welcome to the random quote machine.<br>This app displays random quotes every time you click the <strong><i>Show Quote</i></strong> button down below.<br>Go ahead and try it yourself!</p>
-                <div id="buttons" class="text-center">
+                <p>Welcome to the random quote machine.<br>This app displays random quotes every time you click the <strong><i> Quote</i></strong> button down below.<br>Go ahead and try it yourself!</p>
+                <div id="getQuoteDiv" class="text-center">
                     <button id="getQuote" class="btn btn-md fa fa-quote-left"> Show Quote</button>
+                </div>
+            </div>
+
+
+            <div class='row' id='quotes_container'>
+                <div class='col-md-6 col-sm-6 col-xs-6'>
+                    <div id='img'></div>
+                    <div class='row text-center' id="buttons">
+                        <div class='col-md-6 col-sm-6 col-xs-6'>
+                            <button type='button' id='twitter' class='btn btn-md'>Tweet it! <i class='fa fa-twitter'></i></button>
+                        </div>
+                        <div class='col-md-6 col-sm-6 col-xs-6' id="getQuoteDiv2">
+                            <button id='getQuote2' class='btn btn-md fa fa-quote-left'> New Quote</button>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-md-6 col-sm-6 col-xs-6 text-center'>
+                    <span id='quote'></span>
+                    <span><p id='name'></p></span>
                 </div>
             </div>
         </div>
@@ -40,52 +59,3 @@
 </body>
 
 </html>
-
-<!-- <body>
-    <div class="container-fluid">
-        <h4 id="title" class="text-center text-uppercase">Random Quote Machine</h4>
-        <p id="hover_here" class="text-center text-uppercase">Hover the mouse here!</p>
-        <br>
-
-        <div id="back">
-            <a href="index.html">
-                <i class="fa fa-angle-left fa-5x" aria-hidden="true" title="back to portfolio"></i>
-            </a>
-        </div>
-
-        Quote container
-        <div id="body">
-            <div id="intro" class="lead text-center">
-                <p class="text-center">Welcome to the random quote machine.<br>This app displays random quotes every time you click the <b><i>Show Quote</i></b> button down below.<br>Go ahead and try it yourself!</p>
-                </br>
-                <div id="buttons" style="margin: auto">
-                    <button id="getQuote" class="btn btn-md fa fa-quote-left"> Show Quote</button>
-                </div>
-            </div>
-            <div class="row">
-            <div class="col-md-6 col-sm-6 col-xs-6">
-            <span id="img"></span>
-            <br>
-            <div class="row text-center">
-            <div class="col-md-6 col-sm-6 col-xs-6">
-            <button id="getQuote" class="btn btn-md fa fa-quote-left"> Show Quote</button>
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-6">
-            <button type="button" id="twitter" class="btn btn-md">Tweet it! <i class="fa fa-twitter"></i></button>
-            </div>
-            </div>
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-6 text-center text-justify">
-            <br>
-            <span id="quote"></span>
-            <span><p id="name"></p></span>
-            </div>
-            </div>
-        </div>
-        <div id="footer" class="text-center">
-            <strong>Created by Helio Cardoso</strong>
-        </div>
-    </div>
-</body>
-
-</html> -->

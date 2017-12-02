@@ -1,3 +1,5 @@
+"use strict";
+/* eslint-env jquery */
 $(document).ready(function() {
     var bulb_toggle1 = true,
         bulb_toggle2 = true,
@@ -206,7 +208,7 @@ $(document).ready(function() {
         if (final_value < 255 && final_value >= 0) {
             $("#user_count").val(final_value = final_value + 1);
             // switch on bulb whenever user_count increases by 1
-            for (const i = final_value; i < 255 && i >= 0; i++) {
+            for (var i = final_value; i < 255 && i >= 0; i++) {
                 i === parseInt($("#user_count").val()) ? ($("#bulb" + i).attr("src", "https://image.flaticon.com/icons/svg/222/222546.svg"),
                     $("#binary" + i).text("1").css("color", "#b9936c")) : null;
             }
@@ -218,7 +220,7 @@ $(document).ready(function() {
         if (final_value <= 255 && final_value > 0) {
             $("#user_count").val(final_value = final_value - 1);
             // switch off bulb whenever user_count decreases by 1
-            for (const i = final_value; i <= 255 && i > 0; i--) {
+            for (var i = final_value; i <= 255 && i > 0; i--) {
                 i === parseInt($("#user_count").val()) ? ($("#bulb" + i).attr("src", "https://image.flaticon.com/icons/svg/248/248093.svg"),
                     $("#binary" + i).text("0").css("color", "black")) : null;
             }

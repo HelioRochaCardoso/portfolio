@@ -4,6 +4,7 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    overflow: hidden;
 }
 
 nav {
@@ -26,7 +27,6 @@ nav div div:last-child {
     left: -10px;
     display: flex;
     flex-wrap: nowrap;
-    /*line-height: 250%;*/
     color: orange;
 }
 
@@ -38,11 +38,61 @@ nav div div:last-child {
     float: left;
 }
 
+@keyframes btnSearch {
+    0% {
+        width: 0px;
+    }
+    100% {
+        width: 150px;
+    }
+}
+
+@-webkit-keyframes btnSearch {
+    0% {
+        width: 0px;
+    }
+    100% {
+        width: 150px;
+    }
+}
+
+.input-group {
+    width: 250px;
+}
+
+#userInput {
+    position: relative;
+    left: 180px;
+    top: 20px;
+}
+
+#searchIcon:hover {
+    color: black;
+}
+
+
+/* #searchIcon:hover .input-group-addon {
+    background-color: red;
+} */
+
+
+/* #searchField {
+    border-radius: 50px;
+    position: relative;
+    top: 27px;
+    outline: none;
+    text-align: center;
+    display: none;
+    animation: btnSearch 3s linear;
+    -webkit-animation: btnSearch 3s linear;
+    Safari 4.0 - 8.0
+} */
+
 #date {
     color: white;
     position: relative;
     top: 15px;
-    float: right;
+    left: 60px;
 }
 
 @media screen and (min-width: 600px) {
@@ -138,4 +188,13 @@ footer {
 
 footer p {
     line-height: 25px;
+}
+
+footer p a {
+    color: green;
+}
+
+footer p a:hover {
+    color: green;
+    text-decoration: none;
 }

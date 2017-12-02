@@ -17,12 +17,18 @@
 <body>
     <nav class="navbar container-fluid">
         <div class="row">
-            <div class="col-md-6 col-xs-12 col-sm-6">
+            <div class="col-md-4 col-xs-12 col-sm-6">
                 <i class="fa fa-map-marker" id="marker" aria-hidden="true"></i>
                 <h3 id="city_info"></h3>
             </div>
-            <div class="col-md-6 col-xs-12 col-sm-6">
-                <span id="date"></span>
+            <div class="col-md-4 col-xs-12 col-sm-6">
+                <span id="date" class="text-center"></span>
+            </div>
+            <div class="col-md-4 col-xs-12 col-sm-6" id="userInput">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-search fa-lg" id="searchIcon"></i></span>
+                    <input id="searchField" type="text" class="form-control" placeholder="City name" maxlength="25" required>
+                </div>
             </div>
             <!-- add bookmark-like function displaying weather for next ~5 days -->
         </div>
@@ -30,7 +36,7 @@
 
     <div id="back">
         <a href="index.html">
-            <i class="fa fa-angle-left fa-5x" aria-hidden="true" title="back to portfolio"></i>
+            <i class="fa fa-angle-left fa-5x" aria-hidden="true" title="Back to portfolio"></i>
         </a>
     </div>
 
@@ -39,7 +45,7 @@
         <canvas id="icon1" width="70" height="70"></canvas>
         <div class="row" id="weather_stats_container">
             <div class="col-md-3 col-xs-6 col-sm-3 text-center">
-                <button type="button" class="btn" id="temp_toggle" title="Click to toggle between Fahrenheit and Celsius">&degF</button>
+                <button type="button" class="btn" id="temp_toggle" title="Toggle between Fahrenheit and Celsius">&degF</button>
                 <span class="stats">Temperature</span>
                 <div>
                     <span id="weather_temp" class="value"></span>
@@ -64,7 +70,7 @@
     </div>
 
     <footer>
-        <p class="text-center"><strong>Powered by <a href="https://darksky.net/poweredby/" style="color: green">Dark Sky</a></strong></p>
+        <p class="text-center"><strong>Powered by <a href="https://darksky.net/poweredby/">Dark Sky</a></strong></p>
     </footer>
 
 </body>

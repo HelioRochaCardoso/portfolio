@@ -1,224 +1,298 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Bungee+Shade');
+@import url('https://fonts.googleapis.com/css?family=BioRhyme:400,800');
+@import url('https://fonts.googleapis.com/css?family=Rubik');
+@import url('https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed');
+@import url('https://fonts.googleapis.com/css?family=Ranchers');
+@import url('https://fonts.googleapis.com/css?family=Bree+Serif');
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
 body {
-  min-height: 100vh;
-  color: white;
+    min-height: 100vh;
+    color: white;
 }
 
 #main_container {
-  padding: 0;
-  overflow: hidden;
+    padding: 0;
+    overflow: hidden;
+}
+
+nav {
+    font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
 #navbar {
-  border-bottom: 0;
+    border-bottom: 0;
 }
 
 #name_line {
-  height: 50px;
-  border-left: 1px solid white;
-  position: absolute;
-  left: 200px;
-  top: 15px;
+    height: 50px;
+    border-left: 1px solid white;
+    position: absolute;
+    left: 250px;
+    top: 15px;
 }
 
 #nav_tabs {
-  padding: 2vh;
-  margin: 0px 0px 0px 0px;
+    padding: 2vh;
+    margin: 0;
 }
 
-#nav_tabs li a, .navbar-header .navbar-brand {
-  color: white;
+#nav_tabs li a,
+.navbar-header .navbar-brand {
+    color: white;
 }
 
-#nav_tabs li a:hover {
-  border-bottom: 1px solid red;
+.navbar-header img {
+    position: relative;
+    left: -85px;
+    top: 25px;
+    width: 20px;
+    height: 20px;
+}
+
+#nav_tabs li a:after {
+    display: block;
+    content: '';
+    border-bottom: 1px solid red;
+    transform: scaleX(0);
+    transition: 250ms ease-in-out;
+}
+
+#nav_tabs li a:hover:after {
+    transform: scaleX(1);
 }
 
 #name {
-  position: relative;
-  left: 25px;
+    position: relative;
+    left: 50px;
+    /* font-family: 'Rubik', sans-serif; */
+}
+
+#name_line:before {
+    position: relative;
+    top: 30px;
+    left: -140px;
+    content: '- Web Developer';
+    font-size: 13px;
+    /* font-family: 'Rubik', sans-serif; */
 }
 
 #home {
-  background: url('https://ae01.alicdn.com/kf/HTB1DnDCRXXXXXcJXVXXq6xXFXXXo/Home-decoration-Architecture-City-of-Art-and-font-b-Science-b-font-Valencia-Silk-Fabric-font.jpg');
-  min-height: 100vh;
-  background-size: cover;
+    background: url('https://ae01.alicdn.com/kf/HTB1DnDCRXXXXXcJXVXXq6xXFXXXo/Home-decoration-Architecture-City-of-Art-and-font-b-Science-b-font-Valencia-Silk-Fabric-font.jpg');
+    min-height: 100vh;
+    background-size: cover;
+    position: relative;
+    max-height: 100vh;
+}
+
+.home_layer {
+    background-color: rgba(138, 138, 138, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    justify-content: center;
+}
+
+.home_container {
+    position: relative;
+    top: 200px;
+    left: 50px;
+    width: 50%;
+    /* margin: auto; */
+    text-align: left;
+    color: black;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.home_container p {
+    font-size: 15px;
+    font-family: 'Ranchers', cursive;
+}
+
+.home_container span {
+    font-family: 'Bree Serif', serif;
+    font-size: 52px;
+    color: red;
 }
 
 #about {
-  background: url('https://wallpaperscraft.com/image/computer_keyboard_mouse_laptop_mac_apple_66734_3840x1200.jpg')no-repeat fixed center;
-  background-size: cover;
-  min-height: 100vh;
-  color: black;
-  padding: 0;
+    background: url('https://wallpaperscraft.com/image/computer_keyboard_mouse_laptop_mac_apple_66734_3840x1200.jpg')no-repeat fixed center;
+    background-size: cover;
+    min-height: 100vh;
+    color: black;
+    padding: 0;
 }
 
 #about_container {
-  background-color: white;
-  width: 100%;
-  margin: 0;
-  height: 75px;
-  position: relative;
-  top: -20px;
+    background-color: white;
+    width: 100%;
+    margin: 0;
+    height: 75px;
+    position: relative;
+    top: -20px;
 }
 
 #about_info {
-  position: relative;
-  top: 75px;
-  height: 55vh;
-  padding: 0px 80px 0px 80px;
+    position: relative;
+    top: 75px;
+    height: 55vh;
+    padding: 0px 80px 0px 80px;
 }
 
 #about_header {
-  line-height: 80px;
-  text-transform: uppercase;
+    line-height: 80px;
+    text-transform: uppercase;
 }
 
 #my_image {
-  position: relative;
-  border-radius: 100%;
-  height: 185px;
-  width: 170px;
-  top: 30px;
+    position: relative;
+    border-radius: 100%;
+    height: 185px;
+    width: 170px;
+    top: 30px;
 }
 
 #job_role {
-  position: relative;
-  bottom: 20px;
-  text-align: center;
-  text-shadow: 10px 5px 15px black;
+    position: relative;
+    bottom: 20px;
+    text-align: center;
+    text-shadow: 10px 5px 15px black;
 }
 
 #tech {
-  position: relative;
-  text-align: center;
-  bottom: 40px;
-  text-shadow: 10px 5px 15px black;
+    position: relative;
+    text-align: center;
+    bottom: 40px;
+    text-shadow: 10px 5px 15px black;
 }
 
 #about_text {
-  text-align: justify;
+    text-align: justify;
 }
 
 .about_text2 {
-  font-size: 1.25em;
+    font-size: 1.25em;
 }
 
 #web_logos {
-  position: relative;
-  bottom: 35px;
-  text-align: center;
+    position: relative;
+    bottom: 35px;
+    text-align: center;
 }
 
 #web_trifecta {
-  width: 200px;
+    width: 200px;
 }
 
 #bootstrap {
-  width: 100px;
-  height: 150px;
+    width: 100px;
+    height: 150px;
 }
 
 #jquery {
-  width: 100px;
-  height: 100px;
+    width: 100px;
+    height: 100px;
 }
 
 #portfolio {
-  background: linear-gradient(#995c00, #664400);
-  /* Standard syntax */
-  background: -webkit-linear-gradient(#995c00, #664400);
-  /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(#995c00, #664400);
-  /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(#995c00, #664400);
-  /* For Firefox 3.6 to 15 */
-  background: #995c00;
-  /* For browsers that do not support gradients */
-  min-height: 100vh;
-  padding-top: 50px;
+    background: linear-gradient(#995c00, #664400);
+    /* Standard syntax */
+    background: -webkit-linear-gradient(#995c00, #664400);
+    /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#995c00, #664400);
+    /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#995c00, #664400);
+    /* For Firefox 3.6 to 15 */
+    background: #995c00;
+    /* For browsers that do not support gradients */
+    min-height: 100vh;
+    padding-top: 50px;
 }
 
 .portfolio_items {
-  padding: 27px;
+    padding: 27px;
 }
 
 .img {
-  width: calc(200% / 2);
-  height: 35vh;
+    width: calc(200% / 2);
+    height: 35vh;
 }
 
 .bold {
-  font-weight: 600;
+    font-weight: 600;
 }
 
 #contact {
-  height: 700px;
-  background: url('https://ramsayfitness.com/wp-content/uploads/2016/01/get-in-touch-overlay.jpg') no-repeat center fixed;
-  background-size: cover;
-  min-height: 100vh;
+    height: 700px;
+    background: url('https://ramsayfitness.com/wp-content/uploads/2016/01/get-in-touch-overlay.jpg') no-repeat center fixed;
+    background-size: cover;
+    min-height: 100vh;
 }
 
 #linkedin {
-  display: inline;
-  padding-right: 10px;
+    display: inline;
+    padding-right: 10px;
 }
 
 #linkedin:hover {
-  font-size: 25px;
+    font-size: 25px;
 }
 
 #facebook {
-  display: inline;
-  padding-right: 10px;
+    display: inline;
+    padding-right: 10px;
 }
 
 #facebook:hover {
-  font-size: 25px;
+    font-size: 25px;
 }
 
 #github {
-  display: inline;
-  padding-right: 10px;
+    display: inline;
+    padding-right: 10px;
 }
 
 #github:hover {
-  font-size: 25px;
+    font-size: 25px;
 }
 
 #codepen {
-  display: inline;
+    display: inline;
 }
 
 #codepen:hover {
-  font-size: 25px;
+    font-size: 25px;
 }
 
 .white-fa {
-  color: white;
+    color: white;
 }
 
 #form_container {
-  position: relative;
-  top: 50px;
+    position: relative;
+    top: 50px;
 }
 
 #hr_form {
-  width: 20%;
-  margin: 0 auto;
-  opacity: 0.2;
+    width: 20%;
+    margin: 0 auto;
+    opacity: 0.2;
 }
 
 textarea {
-  max-width: 100%;
-  max-height: 350px;
+    max-width: 100%;
+    max-height: 350px;
 }
 
 #submit {
-  width: 25%;
+    width: 25%;
 }
 
 footer {
-  background-color: #333333;
-  height: 15vh;
-  overflow: hidden;
+    background-color: #333333;
+    height: 15vh;
+    overflow: hidden;
 }

@@ -2,42 +2,42 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Wiki Viewer</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://use.fontawesome.com/d81fb7d455.js"></script>
-  <link rel="stylesheet" type="text/css" href="wiki_viewer.css">
-  <script src="wiki_viewer.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Wiki Viewer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://use.fontawesome.com/d81fb7d455.js"></script>
+    <link rel="stylesheet" type="text/css" href="wiki_viewer.css">
+    <script src="wiki_viewer.js"></script>
 </head>
 
 <body>
-  <!-- add dropdown menu with autocomplete option -->
-  <div class="container-fluid">
-    <h2 id="page_title">Wiki Viewer</h2>
-    <br>
-    <div class="text-center">
-      <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1122px-Wikipedia-logo-v2.svg.png" id="wikiImg" alt="Wikipedia logo">
-    </div>
-    <br><br><br><br>
+    <!-- add dropdown menu with autocomplete option -->
+    <div class="container-fluid">
+        <h2 id="page_title">Wiki Viewer</h2>
+        <br>
+        <div class="text-center">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1122px-Wikipedia-logo-v2.svg.png" id="wikiImg" alt="Wikipedia logo">
+        </div>
+        <br><br><br><br>
 
-    <div id="data_container">
-      <div id="search_container">
-        <i class="fa fa-search fa-lg" aria-hidden="true" id="searchBtn"></i>
-        <input type="text" id="input" placeholder="Search">
-        <hr id="hr">
-      </div>
-      <br>
-      <div id="randomWiki">
-        <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">
-          <i class="fa fa-random fa-lg" aria-hidden="true" title="Random Wikipedia page" id="randomBtn"></i>
-        </a>
-      </div>
-      <ul class="list-group" id="output"></ul>
+        <div id="data_container">
+            <div id="search_container">
+                <i class="fa fa-search fa-lg" aria-hidden="true" id="searchBtn"></i>
+                <input type="text" id="input" placeholder="Search" maxlength="20">
+                <hr id="hr">
+            </div>
+            <br>
+            <div id="randomWiki">
+                <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">
+                    <i class="fa fa-random fa-lg" aria-hidden="true" title="Random Wikipedia page" id="randomBtn"></i>
+                </a>
+            </div>
+            <ul class="list-group" id="output"></ul>
+        </div>
     </div>
-  </div>
 
 </body>
 <html>
