@@ -20,25 +20,25 @@
     <!-- Main Container -->
     <div class="container-fluid" id="main_container">
         <!-- Menu Bar -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" id="navbar" role="navigation">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <img src="https://material.io/icons/static/images/icons-180x180.png">
-                    <h4 class="navbar-brand font-effect-anaglyph" id="name">Helio Cardoso</h4>
-                    <div id="name_line" class="font-effect-anaglyph"></div>
+                    <h4 class="navbar-brand"><span class="font-effect-anaglyph">H</span>elio <span class="font-effect-anaglyph">C</span>ardoso</h4>
+                    <hr>
                 </div>
-                <ul class="nav navbar-nav navbar-right" id="nav_tabs">
+                <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="#home" class="glyphicon glyphicon-home"> Home</a>
+                        <a href="#home" class="glyphicon glyphicon-home"> <span>HOME</span></a>
                     </li>
                     <li>
-                        <a href="#about" class="glyphicon glyphicon-user"> About</a>
+                        <a href="#about" class="glyphicon glyphicon-user"> <span>ABOUT</span></a>
                     </li>
                     <li>
-                        <a href="#portfolio" class="glyphicon glyphicon-briefcase"> Portfolio</a>
+                        <a href="#portfolio" class="glyphicon glyphicon-briefcase"> <span>PORTFOLIO</span></a>
                     </li>
                     <li>
-                        <a href="#contact" class="glyphicon glyphicon-envelope"> Contact</a>
+                        <a href="#contact" class="glyphicon glyphicon-envelope"> <span>CONTACT</span></a>
                     </li>
                 </ul>
             </div>
@@ -46,9 +46,9 @@
         <!-- /Menu Bar -->
 
         <article id="home">
-            <div class="home_layer">
-                <div class="home_container">
-                    <h1 class="font-effect-shadow-multiple">Hi,<br>I'm <span class="font-effect-anaglyph">H</span>elio,<br>web developer,<br>based in Manchester, United Kingdom</h1>
+            <div>
+                <div>
+                    <h1>Hi,<br>I'm <span class="font-effect-anaglyph">H</span>elio,<br>web developer,<br>based in Manchester, United Kingdom</h1>
                     <p>Web Developer / Front End Developer</p>
                 </div>
             </div>
@@ -56,33 +56,32 @@
 
         <!-- About -->
         <article id="about" class="container-fluid">
-            <div class="row" id="about_info">
+            <div class="row">
                 <div class="col-md-4">
-                    <img class="img-responsive pull-right" id="my_image" src="helio_face.jpg" alt="Webpage owner, Helio Cardoso">
+                    <img class="img-responsive pull-right" src="helio_face.jpg" alt="Webpage owner, Helio Cardoso">
                 </div>
-                <div class="col-md-8" id="about_text">
-                    <h3 id="job_role"><strong><span style="color: #00cc99">Full Stack</span> <span class="text-default">Developer</span></strong></h3>
-                    <p class="about_text2">An ambitious self-taught web developer who started the journey in web development out of curiosity for the current state of affairs worldwide, where computerized systems already play an enormous role on everyday life.</p>
-                    <p class="about_text2">My passion grows daily and my thirst to learn more is insatiable. I'm a self-motivator who wants to learn how the Web operates so that I can contribute to its development and tackle any of its emerging problems, thus pushing myself
+                <div class="col-md-8 text-justify">
+                    <h3><strong><span>Full Stack</span> Developer</strong></h3>
+                    <p>An ambitious self-taught web developer who started the journey in web development out of curiosity for the current state of affairs worldwide, where computerized systems already play an enormous role on everyday life.</p>
+                    <p>My passion grows daily and my thirst to learn more is insatiable. I'm a self-motivator who wants to learn how the Web operates so that I can contribute to its development and tackle any of its emerging problems, thus pushing myself
                         to new lengths and acquiring new lifetime skills.</p>
                 </div>
             </div>
-            <h3 id="tech"><strong><span class="text-default">Techno</span><span style="color: #00cc99">logies</span></strong></h3>
-            <div id="web_logos">
-                <img src="https://s-media-cache-ak0.pinimg.com/originals/27/e2/f8/27e2f81f0b20c79a2b6dd093f06062d1.png" id="web_trifecta" title="HTML5, CSS3 & JavaScript" alt="HTML5, CSS3, JavaScript">
-                <img src="https://ffwd.com.br/app/plugins/types/library/toolset/onthego-resources/onthegosystems-icons/vectors/bootstrap-original-logo.svg" id="bootstrap" title="Bootstrap" alt="Bootstrap">
-                <img src="https://camo.githubusercontent.com/02ed3f6695f288aedec24c2a329c667281efef5f/687474703a2f2f707265636973696f6e2d736f6674776172652e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f30342f6a5175726572792e676966" id="jquery" title="jQuery"
-                    alt="jQuery">
+            <div>
+                <h3 class="text-center"><strong>Techno<span>logies</span></strong></h3>
+                <img src="https://s-media-cache-ak0.pinimg.com/originals/27/e2/f8/27e2f81f0b20c79a2b6dd093f06062d1.png" title="HTML5, CSS3 & JavaScript" alt="HTML5, CSS3, JavaScript">
+                <img src="https://ffwd.com.br/app/plugins/types/library/toolset/onthego-resources/onthegosystems-icons/vectors/bootstrap-original-logo.svg" title="Bootstrap" alt="Bootstrap">
+                <img src="https://camo.githubusercontent.com/02ed3f6695f288aedec24c2a329c667281efef5f/687474703a2f2f707265636973696f6e2d736f6674776172652e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f30342f6a5175726572792e676966" title="jQuery" alt="jQuery">
             </div>
-            <hr style="width: 80%; position: relative; bottom: 50px">
+            <hr>
         </article>
         <!-- /About -->
 
         <!-- Portfolio -->
         <article class="container-fluid" id="portfolio">
             <!-- First Row -->
-            <div class="row" id="portfolio_container">
-                <div class="col-md-3 col-sm-6 col-xs-12 portfolio_items">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-12">
                     <a href="https://codepen.io/heliocardoso/full/yJmvNB/">
                         <img class="img img-responsive img-thumbnail" src="https://1a3kls1q8u5etu6z53sktyqdif-wpengine.netdna-ssl.com/wp-content/uploads/2013/05/Jacque-Fresco-Venus-Project.jpg" alt="Jacque Fresco">
                         <figcaption class="text-center bold">Tribute page for Jacque Fresco, made with HTML, CSS & Bootstrap</figcaption>
@@ -170,39 +169,38 @@
 
         <!-- Contact -->
         <article id="contact">
-            <div class="col-md-6 col-xs-12" style="padding-top: 50px">
+            <div class="col-md-6 col-xs-12">
                 <h3 class="text-center">Get in touch</h3>
-                <p class="text-center">@</p>
-                <p class="text-center">cardoso_helio@hotmail.com</p>
-                <hr style="width: 35%; opacity: 0.2">
+                <p class="text-center">@<br>cardoso_helio@hotmail.com</p>
+                <hr>
                 <h3 class="text-center">Find me on</h3>
                 <ul class="row text-center list-unstyled">
-                    <li id="linkedin">
+                    <li>
                         <a href="https://www.linkedin.com/in/helio-cardoso-822355116?trk=nav_responsive_tab_profile">
-                            <i class="fa fa-linkedin fa-2x white-fa"></i>
+                            <i class="fa fa-linkedin fa-2x"></i>
                         </a>
                     </li>
-                    <li id="facebook">
+                    <li>
                         <a href="https://www.facebook.com/heliocardoso301991">
-                            <i class="fa fa-facebook-f fa-2x white-fa"></i>
+                            <i class="fa fa-facebook-f fa-2x"></i>
                         </a>
                     </li>
-                    <li id="github">
+                    <li>
                         <a href="https://github.com/HelioRochaCardoso">
-                            <i class="fa fa-github fa-2x white-fa"></i>
+                            <i class="fa fa-github fa-2x"></i>
                         </a>
                     </li>
-                    <li id="codepen">
+                    <li>
                         <a href="https://codepen.io/heliocardoso/">
-                            <i class="fa fa-codepen fa-2x white-fa"></i>
+                            <i class="fa fa-codepen fa-2x"></i>
                         </a>
                     </li>
                 </ul>
             </div>
-            <div class="col-md-6 col-xs-12" id="form_container">
+            <div class="col-md-6 col-xs-12">
                 <form action="/submit-contact-info" method="post" id="contact_form">
-                    <h3 class="text-center color-black">Leave me a message</h3>
-                    <hr id="hr_form">
+                    <h3 class="text-center">Leave me a message</h3>
+                    <hr>
                     <div class="form-group">
                         <label for="userEmail"><strong>Email:</strong></label>
                         <input type="email" class="form-control" name="email" form="contact_form" pattern="[a-z0-9][-a-z0-9_\+\.]*[a-z0-9]@[a-z0-9][-a-z0-9\.]*[a-z0-9]\.arpa|root|aero|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|ac|ad|ae|af|ag|ai|al|am|an|ao|aq|ar|as|at|au|aw|ax|az|ba|bb|bd|be|bf|bg|bh|bi|bj|bm|bn|bo|br|bs|bt|bv|bw|by|bz|ca|cc|cd|cf|cg|ch|ci|ck|cl|cm|cn|co|cr|cu|cv|cx|cy|cz|de|dj|dk|dm|do|dz|ec|ee|eg|er|es|et|eu|fi|fj|fk|fm|fo|fr|ga|gb|gd|ge|gf|gg|gh|gi|gl|gm|gn|gp|gq|gr|gs|gt|gu|gw|gy|hk|hm|hn|hr|ht|hu|id|ie|il|im|in|io|iq|ir|is|it|je|jm|jo|jp|ke|kg|kh|ki|km|kn|kr|kw|ky|kz|la|lb|lc|li|lk|lr|ls|lt|lu|lv|ly|ma|mc|md|mg|mh|mk|ml|mm|mn|mo|mp|mq|mr|ms|mt|mu|mv|mw|mx|my|mz|na|nc|ne|nf|ng|ni|nl|no|np|nr|nu|nz|om|pa|pe|pf|pg|ph|pk|pl|pm|pn|pr|ps|pt|pw|py|qa|re|ro|ru|rw|sa|sb|sc|sd|se|sg|sh|si|sj|sk|sl|sm|sn|so|sr|st|su|sv|sy|sz|tc|td|tf|tg|th|tj|tk|tl|tm|tn|to|tp|tr|tt|tv|tw|tz|ua|ug|uk|um|us|uy|uz|va|vc|ve|vg|vi|vn|vu|wf|ws|ye|yt|yu|za|zm|zw|[0-9]{1,3}\.{3}[0-9]{1,3}"
@@ -210,12 +208,13 @@
                     </div>
                     <div class="form-group">
                         <label for="userName"><strong>Name:</strong></label>
-                        <input type="text" class="form-control" name="name" form="contact_form" placeholder="Enter your name" required></input>
+                        <input type="text" class="form-control" name="name" form="contact_form" placeholder="Enter your name" required>
+                        </input>
                     </div>
                     <div class="form-group">
                         <label for="userMessage"><strong>Message:</strong></label>
                         <textarea class="form-control" name="message" form="contact_form" placeholder="Type your message here..." rows="10" wrap="hard" spellcheck="true" required></textarea>
-                        <input id="submit" type="submit" form="contact_form" class="btn btn-danger" value="Submit" formaction="#" formmethod="post"></input>
+                        <input type="submit" form="contact_form" class="btn btn-danger" value="Submit" formaction="#" formmethod="post"></input>
                     </div>
                 </form>
             </div>
@@ -224,9 +223,9 @@
     </div>
     <!-- /Main Container -->
     <footer>
-        <hr style="width: 15%; border-color: white">
+        <hr>
         <p class="text-center">Created by Helio Cardoso</p>
-        <hr style="width: 70%; border-color: white">
+        <hr>
     </footer>
 </body>
 

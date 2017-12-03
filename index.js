@@ -4,24 +4,20 @@ $(document).ready(function() {
     $(document).scroll(function() {
         var scrollStart = $(this).scrollTop();
         if (scrollStart < 600) {
-            $("#navbar").css("background-color", "#262626");
-            $("#nav_tabs li a, #name").css("color", "white");
-            $("#name_line").css("border-color", "white");
+            $(".navbar").css("background-color", "#262626");
+            $(".navbar-header h4.navbar-brand, .navbar-nav li a.glyphicon").css("color", "white");
         }
         if (scrollStart > 565) {
-            $("#navbar").css("background-color", "white");
-            $("#nav_tabs li a, #name").css("color", "black");
-            $("#name_line").css("border-color", "black");
+            $(".navbar").css("background-color", "white");
+            $(".navbar-header h4.navbar-brand, .navbar-nav li a.glyphicon").css("color", "black");
         }
         if (scrollStart > 1200) {
-            $("#navbar").css("background-color", "#262626");
-            $("#nav_tabs li a, #name").css("color", "white");
-            $("#name_line").css("border-color", "white");
+            $(".navbar").css("background-color", "#262626");
+            $(".navbar-header h4.navbar-brand, .navbar-nav li a.glyphicon").css("color", "white");
         }
         if (scrollStart > 2200) {
-            $("#navbar").css("background-color", "white");
-            $("#nav_tabs li a, #name").css("color", "black");
-            $("#name_line").css("border-color", "black");
+            $(".navbar").css("background-color", "white");
+            $(".navbar-header h4.navbar-brand, .navbar-nav li a.glyphicon").css("color", "black");
         }
     });
 });
