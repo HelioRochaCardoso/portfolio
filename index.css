@@ -217,8 +217,9 @@ body {
     padding-top: 50px;
 }
 
-.portfolio_items {
+#portfolio>div>div {
     padding: 27px;
+    background-color: green;
 }
 
 .img {
