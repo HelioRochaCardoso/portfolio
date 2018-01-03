@@ -1,4 +1,4 @@
-"use strict";
+// "use strict";
 /* eslint-env jquery */
 $(document).ready(function() {
     var bulb_toggle1 = true,
@@ -229,6 +229,13 @@ $(document).ready(function() {
 
     // activates game mode... FIX Does not disapear when disabled
     $("#game_mode .switch").click(function() {
+        // resets bulb to off image, binary digit to default value and color, and user_count to 0
+        $(function() {
+            $(".bulb").attr("src", "https://image.flaticon.com/icons/svg/248/248093.svg");
+        });
+        $(".images .binary").html("0").css("color", "black");
+        $("#user_count").val("0");
+        final_value = 0;
         game_mode_toggle === false ? (random_num_gen = Math.ceil(Math.random() * 255),
             $("#modal").css("display", "block"),
             $("#random_number").html("<strong>" + random_num_gen + "<strong>").css("font-size", "20px"),
