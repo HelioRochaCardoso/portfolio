@@ -217,6 +217,12 @@ body {
     font-weight: 600;
 }
 
+#portfolio figcaption span {
+    /* color: #4db6ac; */
+    color: black;
+    font-weight: 900;
+}
+
 #contact {
     height: 700px;
     background: url('https://ramsayfitness.com/wp-content/uploads/2016/01/get-in-touch-overlay.jpg') no-repeat center fixed;
@@ -269,6 +275,7 @@ body {
 textarea {
     max-width: 100%;
     max-height: 350px;
+    resize: none;
 }
 
 .form-group:last-of-type input {
