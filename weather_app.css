@@ -68,6 +68,7 @@ nav div div:last-child {
 
 #searchIcon:hover {
     color: black;
+    cursor: pointer;
 }
 
 

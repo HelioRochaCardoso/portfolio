@@ -1,4 +1,4 @@
-"use strict";
+// "use strict";
 /* eslint-env jquery */
 $(document).ready(function() {
     var lat, lon, city, country, region, tempCelsius, tempFahrenheit, icon, humidity, windSpeed, precipitation, weather_description, data_calculation, update_string, update_string2, update_hour, time_zone, last_update, hour;
@@ -248,7 +248,7 @@ $(document).ready(function() {
                     data_calculation = new Date(json.dt * 1000);
                     update_string = "";
                     update_string2 = update_string.concat(data_calculation);
-                    alert(update_string2);
+                    // alert(update_string2);
                     update_hour = update_string2.slice(16, 21);
                     time_zone = update_string2.slice(25, 31);
                     last_update = "Last update at " + update_hour + " " + time_zone;
@@ -400,5 +400,9 @@ $(document).ready(function() {
         if (e.which == 13) {
             searchInput();
         }
+    });
+
+    $("#searchIcon").on("click", function() {
+        searchInput();
     });
 });

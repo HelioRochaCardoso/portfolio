@@ -107,11 +107,19 @@ body {
 }
 
 .status:hover {
-    color: black;
+    color: white;
     cursor: pointer;
-    background-color: grey;
+    background-color: black;
     border-top-left-radius: 100px;
     border-top-right-radius: 100px;
+}
+
+.online-background {
+    background-color: #43a047;
+}
+
+.offline-background {
+    background-color: rgb(255, 0, 0)
 }
 
 .activate {

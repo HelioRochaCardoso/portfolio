@@ -1,4 +1,4 @@
-"use strict";
+// "use strict";
 /* eslint-env jquery */
 $(document).ready(function() {
     var api_streams = "https://api.twitch.tv/kraken/streams/";
@@ -6,8 +6,9 @@ $(document).ready(function() {
     // var api_users = "https://api.twitch.tv/kraken/users/";
     var client_id = "7z9b84cn6ix9kei678z24y5rqhesi2";
     // var api_version = "&v5+json";
-    var users = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "hearthstonefr", "SevenS1ns"];
-    var user_name, logo, url, game, status, watching, followers, views;
+    // add user TugaPS4 PESEPLive
+    var users = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "hearthstonefr", "SevenS1ns", "TugaPS4", "PESEPLive"];
+    var user_name, logo, url, game, status, watching, followers, views, display_all, display_offline, display_online;
     // var on_off;
 
     show_all();
@@ -32,7 +33,7 @@ $(document).ready(function() {
                     // assign standard status message if user has no status set
                     status === null ? status = "No status available" : status;
 
-                    var display_all = "<div class='row' style='padding-top: 1.5em'><div class='col-lg-3 col-md-3 col-xs-4'>" +
+                    display_all = "<div class='row' style='padding-top: 1.5em'><div class='col-lg-3 col-md-3 col-xs-4'>" +
                         "<img class='img-responsive img_size' style='background-color: transparent' src='" + logo + "'></div>" +
                         "<div class='col-lg-9 col-md-9 col-xs-8' style='width: 65%; padding: 0'>" +
                         "<p><a href='" + url + "' target='_blank'>" + user_name + "</a></p>" +
@@ -75,7 +76,7 @@ $(document).ready(function() {
                                 $("#show_online").html("");
                                 $("#show_all").html("");
 
-                                var display_offline = "<div class='row' style='padding-top: 1.5em'><div class='col-lg-3 col-md-3 col-xs-4'>" +
+                                display_offline = "<div class='row' style='padding-top: 1.5em'><div class='col-lg-3 col-md-3 col-xs-4'>" +
                                     "<img class='img-responsive img_size' style='background-color: transparent; border: 0.5em solid red' src='" + logo + "'></div>" +
                                     "<div class='col-lg-9 col-md-9 col-xs-8'>" +
                                     "<p class='text-justify text-black'><a href='" + url + "' target='_blank'>" + user_name + "</a></p>" +
@@ -121,7 +122,7 @@ $(document).ready(function() {
                         views.toString().length > 3 ? views = views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : "";
                         logo === null ? logo = "https//encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdy04kZumT1pU29S8uAUO9yrge0scZcDSyBZIoYRnnFWvcVwXF" : logo;
 
-                        var display_online = "<div class='row' style='padding-top: 1.5em'>" +
+                        display_online = "<div class='row' style='padding-top: 1.5em'>" +
                             "<div class='col-lg-3 col-md-3 col-xs-4 text-center'>" +
                             "<img class='img-responsive img_size border-logo-online' style='background-color: transparent' src='" + logo + "'>" +
                             "</div>" +
@@ -163,26 +164,25 @@ $(document).ready(function() {
         if ($(window).width() > 900 || $(document).width() > 900) {
             $(".status").removeClass('active');
             $(this).addClass("active");
-            $("#online_icon").fadeOut("slow");
-            $("#offline_icon").fadeOut("slow");
+            // online and/or offlinebackground disappears
+            $("#online").removeClass("online-background")
+            $("#offline").removeClass("offline-background");
         } else if ($(window).width() < 500 || $(document).width() < 500) {
             $(".status").removeClass("activate status");
             $("#online").removeClass("activate");
             $("#offline").removeClass("activate");
             $(this).addClass("activate");
         }
-
         show_all();
     });
 
-    // add active class and offline icon to online tab
+    // add active class
     $("#offline").on("click", function() {
         if ($(window).width() > 900 || $(document).width() > 900) {
             $(".status").removeClass('active');
-            // if user clicks on other tabs online symbol disapears
-            $("#online_icon").fadeOut("slow");
-            $(this).addClass("active");
-            $("#offline_icon").fadeIn("slow");
+            // online background disappears
+            $("#online").removeClass("online-background");
+            $(this).addClass("active offline-background");
         } else if ($(window).width() < 500 || $(document).width() < 500) {
             $(".status").removeClass("activate status");
             $("#all").removeClass("activate");
@@ -193,18 +193,16 @@ $(document).ready(function() {
                 "left": "20em"
             });
         }
-
         offline();
     });
 
-    // add active class and online icon to online tab
+    // add active class
     $("#online").on("click", function() {
         if ($(window).width() > 900 || $(document).width() > 900) {
             $(".status").removeClass("active");
-            // if user clicks on other tabs offline symbol disapears
-            $("#offline_icon").fadeOut("slow");
-            $(this).addClass("active");
-            $("#online_icon").fadeIn("slow");
+            // offline background disappears
+            $("#offline").removeClass("offline-background");
+            $(this).addClass("active online-background");
         } else if ($(window).width() < 500 || $(document).width() < 500) {
             $(".status").removeClass("activate status");
             $("#all").removeClass("activate");
