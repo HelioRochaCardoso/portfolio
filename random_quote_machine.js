@@ -1,4 +1,4 @@
-"use strict";
+/* "use strict"; */
 /* eslint-env jquery */
 $(document).ready(function() {
     $("#hover_here").hover(function() {
