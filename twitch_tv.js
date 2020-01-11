@@ -1,218 +1,315 @@
 // "use strict";
 /* eslint-env jquery */
 $(document).ready(function() {
-    var api_streams = "https://api.twitch.tv/kraken/streams/";
-    var api_channels = "https://api.twitch.tv/kraken/channels/";
-    // var api_users = "https://api.twitch.tv/kraken/users/";
-    var client_id = "7z9b84cn6ix9kei678z24y5rqhesi2";
-    // var api_version = "&v5+json";
-    // add user TugaPS4 PESEPLive
-    var users = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "hearthstonefr", "SevenS1ns", "TugaPS4", "PESEPLive"];
-    var user_name, logo, url, game, status, watching, followers, views, display_all, display_offline, display_online;
-    // var on_off;
+    const twitch_url = "https://www.twitch.tv/", // example => curl -H 'Client-ID: 7z9b84cn6ix9kei678z24y5rqhesi2' -X GET 'https://api.twitch.tv/helix/users?login=ESL_SC2'
+        helix_users = "https://api.twitch.tv/helix/users?", // GET https://api.twitch.tv/helix/users?login=<user Name>
+        helix_streams = "https://api.twitch.tv/helix/streams?", // GET https://api.twitch.tv/helix/streams?user_login=<user Name>
+        helix_follows = "https://api.twitch.tv/helix/users/follows?to_id=", // GET https://api.twitch.tv/helix/users/follows?to_id=<user ID>
+        helix_videos = "https://api.twitch.tv/helix/videos?", // GET https://api.twitch.tv/helix/videos?user_id=<user ID> OR game_id=<game ID>
+        helix_games = "https://api.twitch.tv/helix/games?id=", // GET https://api.twitch.tv/helix/games?id=<game ID>
+        client_id = "7z9b84cn6ix9kei678z24y5rqhesi2",
+        users = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "hearthstonefr", "SevenS1ns", "TugaPS4", "PESEPLive", "esl_csgo"];
 
-    show_all();
+    // let user_obj = {
+    //     user_name: users,
+    //     user_id: [],
+    //     helix_url: [helix_users, helix_streams, helix_follows, helix_videos],
+    //     q_param: ["login=", "user_login=", "to_id=", "id="],
+    //     users_data: [],
+    //     streams_data: [],
+    //     follows_data: []
+    // };
 
-    function show_all() {
-        for (var i = 0; i < users.length; i++) {
-            $.ajax({
-                type: "GET",
-                url: api_channels.concat(users[i]),
-                headers: {
-                    "Client-ID": client_id
-                },
-                success: function(data1) {
-                    user_name = data1.display_name.slice(0, 1).toUpperCase() + data1.display_name.slice(1);
-                    logo = data1.logo;
-                    url = data1.url;
-                    status = data1.status;
-                    $("#show_online").html("");
-                    $("#show_offline").html("");
-                    // assign standard picture if user has no logo
-                    logo === null ? logo = "https//encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdy04kZumT1pU29S8uAUO9yrge0scZcDSyBZIoYRnnFWvcVwXF" : logo;
-                    // assign standard status message if user has no status set
-                    status === null ? status = "No status available" : status;
+    let d = new Date(),
+        monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+        month = monthNames[d.getMonth()],
+        curr_month = d.getMonth() + 1,
+        day = d.getDate(),
+        weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+        week_day = weekDays[d.getDay()],
+        full_date = week_day + ", " + day + " " + month;
 
-                    display_all = "<div class='row' style='padding-top: 1.5em'><div class='col-lg-3 col-md-3 col-xs-4'>" +
-                        "<img class='img-responsive img_size' style='background-color: transparent' src='" + logo + "'></div>" +
-                        "<div class='col-lg-9 col-md-9 col-xs-8' style='width: 65%; padding: 0'>" +
-                        "<p><a href='" + url + "' target='_blank'>" + user_name + "</a></p>" +
-                        "<p class='text-success'><strong>Status:<strong> <span class='text-black'><em>" + status + "</em></span></p>" +
-                        "</div>" +
-                        "</div>" +
-                        "<hr>";
+    if (day <= 9) day = ("0" + day);
+    if (curr_month <= 9) curr_month = ("0" + curr_month);
 
-                    $("#show_all").prepend(display_all);
-                }
-            });
+    let desc_truncate = 100;
+
+    let desc_style = "position:relative; top:18x; right:50px;",
+        total_views_style = "position:absolute; top:92px; right:110px;";
+
+    let style_bottom_left = "position:absolute;bottom:0;right:0;",
+        rel_pos = "position:relative;";
+
+    $("#menu").prepend("<div class='text-center'>" + full_date + "</div>");
+
+    ajaxCall("show_all");
+
+    function ajaxCall(display_mode, arr_users = users, query_param = "login=", version = helix_users) {
+        let url, mode;
+
+        if (display_mode.indexOf("followers") > -1) {
+            mode = "follow";
         }
-    }
+        if (display_mode.indexOf("game") > -1) {
+            mode = "game";
+        }
 
-    function offline() {
-        for (var i = 0; i < users.length; i++) {
-            $.ajax({
-                type: "GET",
-                url: api_streams.concat(users[i]),
-                headers: {
-                    "Client-ID": client_id
-                },
-                success: function(data2) {
-                    var users2 = data2._links.self.slice(37);
-                    // if stream is null, user is offline
-                    if (data2.stream === null) {
-                        $.ajax({
-                            type: "GET",
-                            url: api_channels.concat(users2),
-                            headers: {
-                                "Client-ID": client_id
-                            },
-                            success: function(data_offline) {
-                                user_name = data_offline.display_name.slice(0, 1).toUpperCase() + data_offline.display_name.slice(1);
-                                logo = data_offline.logo;
-                                url = data_offline.url;
+        if (mode) {
+            if (mode == "follow") {
+                url = helix_follows + display_mode.slice(display_mode.lastIndexOf("_") + 1);
+            } else {
+                url = helix_games + display_mode.slice(display_mode.lastIndexOf("_") + 1);
+            }
+        } else {
+            url = queryString(display_mode, version, arr_users, query_param);
+        }
 
-                                logo === null ? logo = "https//encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdy04kZumT1pU29S8uAUO9yrge0scZcDSyBZIoYRnnFWvcVwXF" : logo;
-
-                                $("#show_online").html("");
-                                $("#show_all").html("");
-
-                                display_offline = "<div class='row' style='padding-top: 1.5em'><div class='col-lg-3 col-md-3 col-xs-4'>" +
-                                    "<img class='img-responsive img_size' style='background-color: transparent; border: 0.5em solid red' src='" + logo + "'></div>" +
-                                    "<div class='col-lg-9 col-md-9 col-xs-8'>" +
-                                    "<p class='text-justify text-black'><a href='" + url + "' target='_blank'>" + user_name + "</a></p>" +
-                                    "<p class='text-black' style='position: relative; top: 1.2em'><strong>Currently</strong> <span style='color: red'><strong><em>Offline</em></strong></span></p>" +
-                                    "</div>" +
-                                    "</div>" +
-                                    "<hr>";
-
-                                $("#show_offline").prepend(display_offline);
-                            }
-                        });
+        $.ajax({
+            type: "GET",
+            url: url,
+            dataType: "json",
+            contentType: "application/json",
+            headers: {
+                "Client-ID": client_id
+            },
+            error: function(xhr) {
+                let errorMessage = xhr.status + ': ' + xhr.statusText;
+                alert('Error - ' + errorMessage + " => API call for " + display_mode + " not successful!");
+                return;
+            },
+            success: function(response) {
+                if (mode) {
+                    if (mode == "follow") {
+                        console.log(JSON.stringify(response.total));
+                        return response.total;
+                    } else {
+                        console.log(JSON.stringify(response));
+                        return response;
                     }
+                } else
+                    getApiResponse(response, display_mode);
+            }
+        });
+    }
+
+    function getGame(game_id) {
+        $.ajax({
+            type: "GET",
+            url: helix_games + game_id,
+            dataType: "json",
+            contentType: "application/json",
+            headers: {
+                "Client-ID": client_id
+            },
+            error: function(xhr) {
+                let errorMessage = xhr.status + ': ' + xhr.statusText;
+                alert('Error - ' + errorMessage + " => API call for " + display_mode + " not successful!");
+                return;
+            },
+            success: function(response) {
+                return response;
+            }
+        });
+    }
+
+    function queryString(mode, api_url, arr_users, q_param) {
+        if (mode == "show_online") {
+            q_param = "user_login=";
+            api_url = helix_streams;
+            arr_users.forEach(function(el) {
+                if (arr_users.indexOf(el) !== (arr_users.length - 1)) {
+                    api_url += q_param + el + "&";
+                } else {
+                    api_url += (q_param + el);
                 }
             });
+            return api_url;
+        }
+
+        arr_users.forEach(function(el) {
+            if (arr_users.indexOf(el) !== (arr_users.length - 1)) {
+                api_url += q_param + el + "&";
+            } else {
+                api_url += (q_param + el);
+            }
+        });
+
+        return api_url;
+    }
+
+    function getApiResponse(api_response, display) {
+        switch (display) {
+            case "show_online":
+                let on_data = api_response.data,
+                    obj_live_users = { data: [] };
+                for (let elem of on_data) {
+                    if (elem.type) obj_live_users.data.push(elem);
+                }
+
+                display_online(obj_live_users);
+                break;
+            default:
+                display_all(api_response);
         }
     }
 
-    function online() {
-        for (var i = 0; i < users.length; i++) {
-            $.ajax({
-                type: "GET",
-                url: api_streams.concat(users[i]),
-                headers: {
-                    "Client-ID": client_id
-                },
-                success: function(data_online) {
-                    // if stream is not null, user is online
-                    if (data_online.stream !== null) {
-                        user_name = data_online.stream.channel.display_name.slice(0, 1).toUpperCase() + data_online.stream.channel.display_name.slice(1);
-                        logo = data_online.stream.channel.logo;
-                        url = data_online.stream.channel.url;
-                        game = data_online.stream.game;
-                        watching = data_online.stream.viewers;
-                        followers = data_online.stream.channel.followers;
-                        views = data_online.stream.channel.views;
+    function display_all(response) {
+        let display_all_html;
+        let content = response.data;
 
-                        $("#show_all").html("");
-                        $("#show_offline").html("");
+        content.forEach(function(user_obj) {
+            let user_idx = content.indexOf(user_obj),
+                user_name = user_obj.display_name,
+                logo = user_obj.profile_image_url,
+                user_url = twitch_url + user_obj.login,
+                description = user_obj.description,
+                total_views = user_obj.view_count;
+            if (total_views.toString().length > 3) total_views = total_views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            let arr_elems = [user_name, logo, user_url, description];
 
-                        // if number has at least 4 digits, use a comma to separate every 3 digits
-                        watching.toString().length > 3 ? watching = watching.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : "";
-                        followers.toString().length > 3 ? followers = followers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : "";
-                        views.toString().length > 3 ? views = views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : "";
-                        logo === null ? logo = "https//encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdy04kZumT1pU29S8uAUO9yrge0scZcDSyBZIoYRnnFWvcVwXF" : logo;
+            arr_elems.every(function(elem) { if (elem === undefined) return; });
 
-                        display_online = "<div class='row' style='padding-top: 1.5em'>" +
-                            "<div class='col-lg-3 col-md-3 col-xs-4 text-center'>" +
-                            "<img class='img-responsive img_size border-logo-online' style='background-color: transparent' src='" + logo + "'>" +
-                            "</div>" +
-                            "<div class='col-lg-9 col-md-9 col-xs-8'>" +
-                            "<p class='text-justify text-center text-info'>" + user_name + "</p>" +
-                            "<p class='text-black'><span class='text-success'><strong>Currently playing:</strong></span> <em><a href='" + url + "' target='_blank'><strong><em><span class='text-info'>" + game + "</span></em></strong></a></p>" +
-                            "<div class='row text-left' style='position: relative; top: 1em; left: -1.3em'>" +
-                            "<div class='col-lg-4 col-md-4 col-xs-4'>" +
-                            "<div>" +
-                            "<p class='text-black text-center'>Now watching</p>" +
-                            "<p class='text-center'><em class='text-success'>" + watching + "</em> <i class='fa fa-user fa-lg text-info' aria-hidden='true'></i></p>" +
-                            "</div>" +
-                            "</div>" +
-                            "<div class='col-lg-4 col-md-4 col-xs-4'>" +
-                            "<div>" +
-                            "<p class='text-black text-center'>Followers</p>" +
-                            "<p class='text-center'><em class='text-success'>" + followers + "</em> <i class='fa fa-users fa-lg text-info' aria-hidden='true'></i></p>" +
-                            "</div>" +
-                            "</div>" +
-                            "<div class='col-lg-4 col-md-4 col-xs-4'>" +
-                            "<div>" +
-                            "<p class='text-black text-center'>Total Views</p>" +
-                            "<p class='text-center'><em class='text-success'>" + views + "</em> <i class='fa fa-eye fa-lg text-info' aria-hidden='true'></i></p>" +
-                            "</div>" +
-                            "</div>" +
-                            "</div>" +
-                            "</div>" +
-                            "</div>" +
-                            "<hr>";
+            // assign standard logo if user has no logo
+            if (logo === "") logo = "https//encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdy04kZumT1pU29S8uAUO9yrge0scZcDSyBZIoYRnnFWvcVwXF";
+            if (description.length >= desc_truncate) description = description.slice(0, desc_truncate) + "...";
 
-                        $("#show_online").prepend(display_online);
-                    }
-                }
-            });
-        }
+            display_all_html += "<div id='user_" + user_idx + "' style='" + rel_pos + "'>";
+            display_all_html += "<div class='row'>";
+            display_all_html += "<div class='col-lg-4 col-md-4 col-xs-4'>";
+            display_all_html += "<a href='" + user_url + "' target='_blank'><img title='" + user_name + "' alt='" + user_name + "' class='img-responsive img_size' src='" + logo + "'></a>";
+            display_all_html += "<br><p class='text-center'><a href='" + user_url + "' target='_blank'><strong>" + user_name + "</strong></a></p>";
+            display_all_html += "</div>";
+            display_all_html += "<div class='col-lg-8 col-md-8 col-xs-8'>";
+            display_all_html += "<p><span><strong><em>" + description + "</em></strong></span></p>";
+            display_all_html += "</div>";
+            display_all_html += "</div>";
+            display_all_html += "<p title='Total Views' style='" + style_bottom_left + "'><i class='fa fa-eye fa-lg text-info' aria-hidden='true'></i>&nbsp" + total_views + "</p>";
+            display_all_html += "</div>";
+            display_all_html += "<hr>";
+
+            $("#users").html(display_all_html);
+        });
     }
 
+    function display_online(response) {
+        let display_online_html, content = response.data;
+
+        content.forEach(function(user_obj) {
+            let user_idx = content.indexOf(user_obj),
+                user_name = user_obj.user_name,
+                game = ajaxCall("game_" + user_obj.game_id),
+                followers = ajaxCall("followers_" + user_obj.user_id),
+                user_url = twitch_url + user_name.toLowerCase(),
+                title = user_obj.title,
+                viewer_count = user_obj.viewer_count,
+                started_at = user_obj.started_at,
+                language = user_obj.language,
+                thumbnail_url = user_obj.thumbnail_url,
+                arr_langs = { "en": ["english", "images/twitch_images/england.svg"], "fr": ["french", "images/twitch_images/france.svg"], "pt": ["portuguese", "images/twitch_images/portugal.svg"], "sp": ["spanish", "images/twitch_images/spain.svg"], "it": ["italian", "images/twitch_images/italy.svg"], "ru": ["russian", "images/twitch_images/russia.svg"], "ch": ["mandarin", "images/twitch_images/china.svg"] },
+                s_time = started_at.slice(started_at.indexOf("T") + 1, started_at.indexOf("T") + 6),
+                s_date = started_at.slice(0, started_at.indexOf("T"));
+            s_date = s_date.replace(/-/g, "/");
+            thumbnail_url = thumbnail_url.replace("{width}x{height}", "50x50");
+            let str_start = s_date + " at " + s_time,
+                d_today = d.getFullYear() + "/" + curr_month + "/" + day,
+                d_today_short = d_today.slice(0, d_today.lastIndexOf("/")),
+                s_date_short = s_date.slice(0, s_date.lastIndexOf("/"));
+            if (d_today == s_date) str_start = "Today at " + s_time;
+            if ((d_today_short == s_date_short) && (parseInt(day) - parseInt(s_date.slice(8)) == 1)) str_start = "Yesterday at " + s_time;
+
+            for (let i in arr_langs)
+                if (i === language) language = arr_langs[i];
+
+                // if number > 4 digits, use a comma to separate every 3 digits
+            if (viewer_count.toString().length > 3) viewer_count = viewer_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+            // if number > 4 digits, use a comma to separate every 3 digits
+            // if (followers.toString().length > 3) followers = followers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+            display_online_html += "<div class='row' id='user_" + user_idx + "' style='padding-top:1.5em'>"; // open outer div
+            display_online_html += "<div class='col-lg-3 col-md-3 col-xs-4 text-center'>"; // open div row
+            display_online_html += "<img class='img-responsive img_size' src='" + thumbnail_url + "' alt='user thumbnail'>";
+            display_online_html += "<p data-toggle='modal' data-target='#modal_" + user_name + "' title='" + user_name + "' class='text-center'><strong>" + user_name + "</strong></a></p>";
+            display_online_html += "<div class='modal fade' id='modal_" + user_name + "' tabindex='-1' role='dialog' aria-labelledby='modaltitle' aria-hidden='true'>"; // modal
+            display_online_html += "<div class='modal-dialog modal-dialog-centered' role='document'>"; // modal-dialog
+            display_online_html += "<div class='modal-content'>"; // modal-content
+            display_online_html += "<div class='modal-header'>"; // modal-header
+            display_online_html += "<h5 class='modal-title' id='modalTitle' style='color:black'>" + user_name + " is currently playing</h5>";
+            display_online_html += "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>";
+            display_online_html += "<span aria-hidden='true'>&times;</span>";
+            display_online_html += "</button>";
+            display_online_html += "</div>"; // modal-header
+            display_online_html += "<div class='modal-body'>"; // modal-body
+            display_online_html += "<iframe id='iframe_" + user_name + "' src='https://player.twitch.tv/?channel=" + user_name + "&muted=true&autoplay=true' height='550' width='550' frameborder='0' scrolling='no' allowfullscreen='true'></iframe>";
+            display_online_html += "</div>"; // modal-body
+            display_online_html += "<div class='modal-footer'>"; // modal-footer
+            display_online_html += "<button type='button' class='btn btn-secondary' data-dismiss='modal' style='color:black'>Close</button>";
+            display_online_html += "</div>"; // modal-footer
+            display_online_html += "</div>"; // modal-content
+            display_online_html += "</div>"; // modal-dialog
+            display_online_html += "</div>"; // modal
+            display_online_html += "</div>"; // close div row div
+            display_online_html += "<div class='col-lg-9 col-md-9 col-xs-8'>"; // open div row 2
+            display_online_html += "<a href='" + user_url + "' target='_blank' id='game_url'><p title='Stream Title'><strong><i class='fas fa-gamepad fa-lg' aria-hidden='true'></i>&nbsp<em><span>" + title + "</span></em></strong></p></a>";
+            display_online_html += "<div class='row'>"; // open div icons
+            display_online_html += "<div class='col-lg-3 col-md-3 col-xs-3'>"; // live viewers
+            display_online_html += "<p title='" + viewer_count + " live viewers'><i class='fa fa-eye fa-lg text-info' aria-hidden='true'></i>&nbsp<em class='text-success'>" + viewer_count + "</em></p>";
+            display_online_html += "</div>"; // live viewers
+            display_online_html += "<div class='col-lg-3 col-md-3 col-xs-3'>"; // stream lang
+            display_online_html += "<img title='Streaming in " + language[0] + "' alt='Streaming in " + language[0] + " flag' class='img-fluid' style='height:2vh' src='" + language[1] + "'>";
+            display_online_html += "</div>"; // stream lang
+            display_online_html += "<div class='col-lg-3 col-md-3 col-xs-3'>"; // start at
+            display_online_html += "<p title='Stream started " + (str_start.slice(0, 1).toLowerCase() + str_start.slice(1)) + "'><i class='fas fa-clock fa-lg text-info' aria-hidden='true'></i>&nbsp<em class='text-success'>" + str_start + "</em></p>";
+            display_online_html += "</div>"; // start at
+            display_online_html += "<div class='col-lg-3 col-md-3 col-xs-3'>"; // followers
+            display_online_html += "<p title='followers'><i class='fas fa-users fa-lg text-info' aria-hidden='true'></i>&nbsp<em class='text-success'></em></p>";
+            display_online_html += "</div>"; // followers
+            display_online_html += "</div>"; // close div icons
+            display_online_html += "</div>"; // close div row 2
+            display_online_html += "</div>"; // close outer div
+            display_online_html += "<hr>";
+
+            $("#users").html(display_online_html);
+        });
+    }
+
+    // add active class to All tab
     $("#all").on("click", function() {
         if ($(window).width() > 900 || $(document).width() > 900) {
-            $(".status").removeClass('active');
-            $(this).addClass("active");
-            // online and/or offlinebackground disappears
-            $("#online").removeClass("online-background")
-            $("#offline").removeClass("offline-background");
-        } else if ($(window).width() < 500 || $(document).width() < 500) {
-            $(".status").removeClass("activate status");
-            $("#online").removeClass("activate");
-            $("#offline").removeClass("activate");
             $(this).addClass("activate");
-        }
-        show_all();
-    });
+            // $(this).css({ "cursor": "default" });
+            $("#online").removeClass("activate");
+            $(this).removeClass("status");
 
-    // add active class
-    $("#offline").on("click", function() {
-        if ($(window).width() > 900 || $(document).width() > 900) {
-            $(".status").removeClass('active');
-            // online background disappears
-            $("#online").removeClass("online-background");
-            $(this).addClass("active offline-background");
-        } else if ($(window).width() < 500 || $(document).width() < 500) {
-            $(".status").removeClass("activate status");
-            $("#all").removeClass("activate");
-            $("#online").removeClass("activate");
-            $(this).addClass("activate");
-            $("hr").css({
-                "position": "relative",
-                "left": "20em"
+            $("#online").mouseenter(function() {
+                $(this).addClass("status");
+            }).mouseleave(function() {
+                $(this).removeClass("status");
             });
+        } else if ($(window).width() < 500 || $(document).width() < 500) {
+            $("#online h4").removeClass("activate");
+            $("#all h4").addClass("activate");
         }
-        offline();
+        ajaxCall("show_all");
     });
 
-    // add active class
+    // add active class to Online tab
     $("#online").on("click", function() {
         if ($(window).width() > 900 || $(document).width() > 900) {
-            $(".status").removeClass("active");
-            // offline background disappears
-            $("#offline").removeClass("offline-background");
-            $(this).addClass("active online-background");
-        } else if ($(window).width() < 500 || $(document).width() < 500) {
-            $(".status").removeClass("activate status");
-            $("#all").removeClass("activate");
-            $("#offline").removeClass("activate");
             $(this).addClass("activate");
-            $("hr").css({
-                "position": "relative",
-                "left": "2em"
+            // $(this).css({ "cursor": "default" });
+            $("#all").removeClass("activate");
+            $(this).removeClass("status");
+
+            $("#all").mouseenter(function() {
+                $(this).addClass("status");
+            }).mouseleave(function() {
+                $(this).removeClass("status");
             });
+        } else if ($(window).width() < 500 || $(document).width() < 500) {
+            $("#all h4").removeClass("activate");
+            $("#online h4").addClass("activate");
         }
-        online();
+        ajaxCall("show_online");
     });
 });
