@@ -92,26 +92,6 @@ $(document).ready(function() {
         });
     }
 
-    function getGame(game_id) {
-        $.ajax({
-            type: "GET",
-            url: helix_games + game_id,
-            dataType: "json",
-            contentType: "application/json",
-            headers: {
-                "Client-ID": client_id
-            },
-            error: function(xhr) {
-                let errorMessage = xhr.status + ': ' + xhr.statusText;
-                alert('Error - ' + errorMessage + " => API call for " + display_mode + " not successful!");
-                return;
-            },
-            success: function(response) {
-                return response;
-            }
-        });
-    }
-
     function queryString(mode, api_url, arr_users, q_param) {
         if (mode == "show_online") {
             q_param = "user_login=";
