@@ -195,12 +195,24 @@ $(document).ready(function() {
     });
 
     $("#binary_code span").click(function() {
-        binary_toggle === true ? ($(".binary").css("visibility", "hidden"), binary_toggle = false) : ($(".binary").css("visibility", "visible"), binary_toggle = true);
+        if (binary_toggle === true) {
+            $(".binary").css("visibility", "hidden");
+            binary_toggle = false;
+        } else {
+            $(".binary").css("visibility", "visible");
+            binary_toggle = true;
+        }
     });
 
     // toggles numbers on top of light bulbs
     $("#num_display span").click(function() {
-        numbers_toggle === true ? ($(".number").css("visibility", "hidden"), numbers_toggle = false) : ($(".number").css("visibility", "visible"), numbers_toggle = true);
+        if (numbers_toggle === true) {
+            $(".number").css("visibility", "hidden");
+            numbers_toggle = false;
+        } else {
+            $(".number").css("visibility", "visible");
+            numbers_toggle = true;
+        }
     });
 
     // clicking the plus symbol increases user input by 1
@@ -209,8 +221,10 @@ $(document).ready(function() {
             $("#user_count").val(final_value = final_value + 1);
             // switch on bulb whenever user_count increases by 1
             for (var i = final_value; i < 255 && i >= 0; i++) {
-                i === parseInt($("#user_count").val()) ? ($("#bulb" + i).attr("src", "https://image.flaticon.com/icons/svg/222/222546.svg"),
-                    $("#binary" + i).text("1").css("color", "#b9936c")) : null;
+                if (i === parseInt($("#user_count").val())) {
+                    $("#bulb" + i).attr("src", "https://image.flaticon.com/icons/svg/222/222546.svg");
+                    $("#binary" + i).text("1").css("color", "#b9936c");
+                }
             }
         }
     });
@@ -221,8 +235,10 @@ $(document).ready(function() {
             $("#user_count").val(final_value = final_value - 1);
             // switch off bulb whenever user_count decreases by 1
             for (var i = final_value; i <= 255 && i > 0; i--) {
-                i === parseInt($("#user_count").val()) ? ($("#bulb" + i).attr("src", "https://image.flaticon.com/icons/svg/248/248093.svg"),
-                    $("#binary" + i).text("0").css("color", "black")) : null;
+                if (i === parseInt($("#user_count").val())) {
+                    $("#bulb" + i).attr("src", "https://image.flaticon.com/icons/svg/248/248093.svg");
+                    $("#binary" + i).text("0").css("color", "black");
+                }
             }
         }
     });
@@ -236,16 +252,20 @@ $(document).ready(function() {
         $(".images .binary").html("0").css("color", "black");
         $("#user_count").val("0");
         final_value = 0;
-        game_mode_toggle === false ? (random_num_gen = Math.ceil(Math.random() * 255),
-            $("#modal").css("display", "block"),
-            $("#random_number").html("<strong>" + random_num_gen + "<strong>").css("font-size", "20px"),
-            $("#game_mode_num").css("display", "block").html("Represent the number <strong>" + random_num_gen + "</strong> in binary")) : ($("#modal").css("display", "none"),
-            game_mode_toggle = true);
+        if (game_mode_toggle === false) {
+            random_num_gen = Math.ceil(Math.random() * 255);
+            $("#modal").css("display", "block");
+            $("#random_number").html("<strong>" + random_num_gen + "<strong>").css("font-size", "20px");
+            $("#game_mode_num").css("display", "block").html("Represent the number <strong>" + random_num_gen + "</strong> in binary");
+        } else {
+            $("#modal").css("display", "none");
+            game_mode_toggle = true;
+        }
 
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function(event) {
             var modal = document.getElementById("modal");
-            event.target === modal ? modal.style.display = "none" : null;
+            if (event.target === modal) modal.style.display = "none";
         }
 
         // When the user clicks on (x), close the modal

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ranchers">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bree+Serif">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://use.fontawesome.com/d81fb7d455.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="index.css">
@@ -23,23 +23,24 @@
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <img src="images/helio_face.jpg">
+                    <!-- <img src="images/helio_face.jpg"> -->
                     <h4 class="navbar-brand"><span class="font-effect-anaglyph">H</span>elio <span class="font-effect-anaglyph">C</span>ardoso</h4>
+                    <h6 id="job_desc"></h6>
                     <hr>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a href="#home" class="glyphicon glyphicon-home"> <span>HOME</span></a>
                     </li>
-                    <li>
-                        <a href="#about" class="glyphicon glyphicon-user"> <span>ABOUT</span></a>
-                    </li>
+                    <!-- <li> -->
+                    <!-- <a href="#about" class="glyphicon glyphicon-user"> <span>ABOUT</span></a> -->
+                    <!-- </li> -->
                     <li>
                         <a href="#portfolio" class="glyphicon glyphicon-briefcase"> <span>PORTFOLIO</span></a>
                     </li>
-                    <li>
-                        <a href="#contact" class="glyphicon glyphicon-envelope"> <span>CONTACT</span></a>
-                    </li>
+                    <!-- <li> -->
+                    <!-- <a href="#contact" class="glyphicon glyphicon-envelope"> <span>CONTACT</span></a> -->
+                    <!-- </li> -->
                 </ul>
             </div>
         </nav>
@@ -49,13 +50,22 @@
             <div>
                 <div>
                     <h1>Hi,<br>I'm <span class="font-effect-anaglyph">H</span>elio,<br>web developer,<br>based in Manchester, United Kingdom</h1>
-                    <p>Web Developer / Front End Developer</p>
+                    <p>Software Engineer / Front End Developer</p>
                 </div>
+            </div>
+            <div id="tech">
+                <!-- <h3 class="text-center"><strong>Techno<span>logies</span></strong></h3> -->
+                <img src="https://s-media-cache-ak0.pinimg.com/originals/27/e2/f8/27e2f81f0b20c79a2b6dd093f06062d1.png" title="HTML5, CSS3 and JavaScript" alt="HTML5, CSS3, JavaScript">
+                <img src="http://pluspng.com/img-png/bootstrap-png-bootstrap-512.png" title="Bootstrap" alt="Bootstrap">
+                <img src="https://git-scm.com/images/logos/downloads/Git-Logo-2Color.png" title="Git" alt="Git">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/The_C_Programming_Language_logo.svg/2000px-The_C_Programming_Language_logo.svg.png" title="C Programming" alt="C">
+                <img src="https://pngimage.net/wp-content/uploads/2018/06/php-mysql-logo-png-5.png" title="PHP and MySQL" alt="PHP, MySQL">
+                <img src="https://camo.githubusercontent.com/02ed3f6695f288aedec24c2a329c667281efef5f/687474703a2f2f707265636973696f6e2d736f6674776172652e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f30342f6a5175726572792e676966" title="jQuery" alt="jQuery">
             </div>
         </article>
 
         <!-- About -->
-        <article id="about" class="container-fluid">
+        <!-- <article id="about" class="container-fluid">
             <div class="row">
                 <div class="col-md-4">
                     <img class="img-responsive pull-right" src="images/helio_face.jpg" alt="Webpage owner, Helio Cardoso">
@@ -77,7 +87,7 @@
                 <img src="https://camo.githubusercontent.com/02ed3f6695f288aedec24c2a329c667281efef5f/687474703a2f2f707265636973696f6e2d736f6674776172652e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f30342f6a5175726572792e676966" title="jQuery" alt="jQuery">
             </div>
             <hr>
-        </article>
+        </article> -->
         <!-- /About -->
 
         <!-- Portfolio -->
@@ -85,28 +95,34 @@
         <article class="container-fluid" id="portfolio">
             <!-- First Row -->
             <div class="row">
-                <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="col-md-4 col-sm-6 col-xs-12">
                     <a href="random_quote_machine.html">
                         <img class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/contenthub-static/blog/wp-content/uploads/2016/08/quotation-marks.gif" alt="Animated quotation marks">
-                        <figcaption class="text-center bold"><span>Random Quote Machine</span><br> HTML CSS Bootstrap JavaScript</figcaption>
+                        <figcaption class="text-center bold"><span>Random Quote Machine</span><br>CSS, Bootstrap, JavaScript</figcaption>
                     </a>
                 </div>
-                <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="col-md-4 col-sm-6 col-xs-12">
                     <a href="weather_app.html">
                         <img class="img img-responsive img-thumbnail" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/3f61ec27118125.5636032dd67b0.gif" alt="Animated phone weather application">
-                        <figcaption class="text-center bold"><span>Weather App</span><br>HTML CSS Bootstrap JavaScript</figcaption>
+                        <figcaption class="text-center bold"><span>Weather App</span><br>CSS, Bootstrap, JavaScript</figcaption>
                     </a>
                 </div>
-                <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="col-md-4 col-sm-6 col-xs-12">
                     <a href="wiki_viewer.html">
-                        <img class="img img-responsive img-thumbnail" src="https://previews.123rf.com/images/stuartphoto/stuartphoto1205/stuartphoto120500902/13564488-Wiki-D-finition-Loupe-Affiche-en-ligne-Encyclop-die-Collaborative-Community-Banque-d'images.jpg">
-                        <figcaption class="text-center bold"><span>Wiki Viewer</span><br>HTML CSS Bootstrap JavaScript</figcaption>
+                        <img class="img img-responsive img-thumbnail" src="https://previews.123rf.com/images/stuartphoto/stuartphoto1205/stuartphoto120500902/13564488-Wiki-D-finition-Loupe-Affiche-en-ligne-Encyclop-die-Collaborative-Community-Banque-d'images.jpg" alt="Wiki definition">
+                        <figcaption class="text-center bold"><span>Wiki Viewer</span><br>CSS, Bootstrap, JavaScript</figcaption>
                     </a>
                 </div>
-                <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="col-md-4 col-sm-6 col-xs-12">
                     <a href="cs50_lightbulb_game.html">
                         <img class="img img-responsive img-thumbnail" src="http://luxreview.com/upload/system/2017/01/16110415.jpg">
-                        <figcaption class="text-center bold"><span>Binary Light Bulb Game</span><br> JavaScript, Bootstrap, CSS</figcaption>
+                        <figcaption class="text-center bold"><span>Binary Light Bulb Game</span><br>CSS, Bootstrap, JavaScript</figcaption>
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <a href="twitch_tv.html">
+                        <img class="img img-responsive img-thumbnail" src="https://i.ytimg.com/vi/1hyZjBdwK40/maxresdefault.jpg">
+                        <figcaption class="text-center bold"><span>Twitch API</span><br> HTML, CSS, Bootstrap, JavaScript</figcaption>
                     </a>
                 </div>
             </div>
@@ -201,7 +217,7 @@
         <!-- /Portfolio -->
 
         <!-- Contact -->
-        <article id="contact">
+        <!-- <article id="contact">
             <div class="col-md-6 col-xs-12">
                 <h3 class="text-center">Get in touch</h3>
                 <p class="text-center">@<br>cardoso_helio@hotmail.com</p>
@@ -251,7 +267,7 @@
                     </div>
                 </form>
             </div>
-        </article>
+        </article> -->
         <!-- /Contact -->
     </div>
     <!-- /Main Container -->
@@ -260,6 +276,9 @@
         <p class="text-center">Created by Helio Cardoso</p>
         <hr>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </html>

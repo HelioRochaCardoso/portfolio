@@ -21,15 +21,11 @@ body {
     padding: 0;
 }
 
-#title {
-    text-align: center;
-}
-
 #inner_container {
     position: relative;
     width: 42vw;
     margin: auto;
-    margin-bottom: 3em;
+    margin-bottom: 4em;
 }
 
 @media screen and (min-width: 600px) {
@@ -68,14 +64,13 @@ body {
     background-color: rgba(36, 140, 128, 0.6);
     border-top-right-radius: 30px;
     border-top-left-radius: 30px;
-    height: 20vh;
     position: relative;
-    top: 0;
 }
 
-#menu_top .col-md-6 {
+#menu_top div {
     position: relative;
     top: 20px;
+    height: 50px;
 }
 
 #menu_bottom {
@@ -85,41 +80,14 @@ body {
     bottom: 0;
 }
 
-#online_icon {
-    display: none;
-    position: absolute;
-    left: 2.5em;
-    color: green;
+a:hover {
+    text-decoration: none;
 }
 
-#offline_icon {
-    display: none;
-    position: absolute;
-    left: 2.5em;
-    color: red;
-}
-
-.active {
-    background-color: white;
-    color: black;
+.status {
+    background-color: rgba(36, 140, 128, 23.6);
     border-top-left-radius: 100px;
     border-top-right-radius: 100px;
-}
-
-.status:hover {
-    color: white;
-    cursor: pointer;
-    background-color: black;
-    border-top-left-radius: 100px;
-    border-top-right-radius: 100px;
-}
-
-.online-background {
-    background-color: #43a047;
-}
-
-.offline-background {
-    background-color: rgb(255, 0, 0)
 }
 
 .activate {
@@ -130,23 +98,14 @@ body {
 #users {
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
-    padding: 0;
+    padding: 0px 25px;
     margin: 0;
     background-color: rgba(197, 239, 247, 0.6);
 }
 
-.online_color {
-    border-radius: 100px;
-    background-color: #33ff77;
-    height: 20px;
-    width: 20px;
-}
-
-.offline_color {
-    border-radius: 100px;
-    background-color: #ff3333;
-    height: 20px;
-    width: 20px;
+button {
+    background-color: Transparent;
+    border: none;
 }
 
 .img_size {
@@ -156,54 +115,13 @@ body {
     margin: auto;
 }
 
-.border-logo-online {
-    border: 5px solid rgb(21, 150, 22);
+#users>hr {
+    width: 60%;
+    border-color: rgba(36, 140, 128, 0.5);
 }
 
-.border-logo-offline {
-    border: 5px solid rgb(247, 0, 0);
-}
-
-.bg-success {
-    background-color: rgb(21, 150, 22);
-}
-
-.bg-warning {
-    background-color: rgb(247, 0, 0);
-}
-
-.bg-inverse {
-    background-color: rgb(27, 24, 24);
-}
-
-.text-black {
-    color: black;
-}
-
-#show_all hr {
-    width: 68%;
-    border: 0.1em solid rgba(0, 0, 0, 0.2);
-    position: relative;
-    left: 3.2em;
-}
-
-#show_offline hr {
-    width: 50%;
-    border: 0.1em solid rgba(0, 0, 0, 0.2);
-    position: relative;
-    left: 0.5em;
-}
-
-#show_online .img-responsive {
-    position: relative;
-    top: 2em;
-}
-
-#show_online hr {
-    width: 70%;
-    border: 0.1em solid rgba(0, 0, 0, 0.2);
-    position: relative;
-    left: 4.5em;
+#users hr:last-child {
+    display: none;
 }
 
 #footer {
@@ -223,36 +141,28 @@ body {
     #inner_container {
         width: 100%;
         margin: 0;
-        margin-bottom: 2em;
+        margin-bottom: 6em;
         overflow: hidden;
     }
     #menu {
         border-top-right-radius: 0px;
         border-top-left-radius: 0px;
-        height: 7.5em;
+        height: 5.5em;
     }
     #users {
         border-bottom-left-radius: 0px;
         border-bottom-right-radius: 0px;
+        padding: 10px;
     }
-    #show_all .col-xs-8 {
+    #show_all .col-xs-6 {
         position: relative;
         left: -1em;
     }
-    #show_all hr {
+    #users>hr {
         width: 60%;
+        border-color: rgba(36, 140, 128, 0.5);
     }
-    #show_offline .col-xs-8 {
-        left: -1.5em;
-    }
-    #show_offline hr {
-        left: 2em;
-    }
-    #show_online .col-xs-8 {
-        position: relative;
-        left: -0.5em;
-    }
-    #show_online hr {
-        width: 60%;
+    #users hr:last-child {
+        display: none;
     }
 }
