@@ -10,15 +10,17 @@ $(document).ready(function() {
         client_id = "7z9b84cn6ix9kei678z24y5rqhesi2",
         users = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "hearthstonefr", "SevenS1ns", "TugaPS4", "PESEPLive", "esl_csgo"];
 
-    // let user_obj = {
-    //     user_name: users,
-    //     user_id: [],
-    //     helix_url: [helix_users, helix_streams, helix_follows, helix_videos],
-    //     q_param: ["login=", "user_login=", "to_id=", "id="],
-    //     users_data: [],
-    //     streams_data: [],
-    //     follows_data: []
-    // };
+    let doc_w = document.body.clientWidth,
+        window_s_w = window.screen.width,
+        microbrowser = false,
+        small_window_style = "position:relative;top:2em;left:-100px;width:170%;",
+        small_div_style = "position:relative;left:-10px;",
+        small_div_style2 = "border:0;margin:o;padding:0;",
+        desc_truncate = 100,
+        style_bottom_left = "position:absolute;bottom:0;right:15px;",
+        rel_pos = "position:relative;";
+
+    doc_w <= 500 || window_s_w <= 500 ? microbrowser = true : microbrowser = false;
 
     let d = new Date(),
         monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
@@ -31,14 +33,6 @@ $(document).ready(function() {
 
     if (day <= 9) day = ("0" + day);
     if (curr_month <= 9) curr_month = ("0" + curr_month);
-
-    let desc_truncate = 100;
-
-    let desc_style = "position:relative; top:18x; right:50px;",
-        total_views_style = "position:absolute; top:92px; right:110px;";
-
-    let style_bottom_left = "position:absolute;bottom:0;right:0;",
-        rel_pos = "position:relative;";
 
     $("#menu").prepend("<div class='text-center'>" + full_date + "</div>");
 
@@ -74,7 +68,7 @@ $(document).ready(function() {
             },
             error: function(xhr) {
                 let errorMessage = xhr.status + ': ' + xhr.statusText;
-                alert('Error - ' + errorMessage + " => API call for " + display_mode + " not successful!");
+                alert('Error - ' + errorMessage + " => AJAX call for " + display_mode + " not successful!");
                 return;
             },
             success: function(response) {
@@ -134,8 +128,8 @@ $(document).ready(function() {
     }
 
     function display_all(response) {
-        let display_all_html;
-        let content = response.data;
+        let display_all_html = "",
+            content = response.data;
 
         content.forEach(function(user_obj) {
             let user_idx = content.indexOf(user_obj),
@@ -147,7 +141,7 @@ $(document).ready(function() {
             if (total_views.toString().length > 3) total_views = total_views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             let arr_elems = [user_name, logo, user_url, description];
 
-            arr_elems.every(function(elem) { if (elem === undefined) return; });
+            // arr_elems.every(function(elem) { if (elem === undefined) return; });
 
             // assign standard logo if user has no logo
             if (logo === "") logo = "https//encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdy04kZumT1pU29S8uAUO9yrge0scZcDSyBZIoYRnnFWvcVwXF";
@@ -160,7 +154,7 @@ $(document).ready(function() {
             display_all_html += "<br><p class='text-center'><a href='" + user_url + "' target='_blank'><strong>" + user_name + "</strong></a></p>";
             display_all_html += "</div>";
             display_all_html += "<div class='col-lg-8 col-md-8 col-xs-8'>";
-            display_all_html += "<p><span><strong><em>" + description + "</em></strong></span></p>";
+            display_all_html += "<p><strong><em>" + description + "</em></strong></p>";
             display_all_html += "</div>";
             display_all_html += "</div>";
             display_all_html += "<p title='Total Views' style='" + style_bottom_left + "'><i class='fa fa-eye fa-lg text-info' aria-hidden='true'></i>&nbsp" + total_views + "</p>";
@@ -172,7 +166,8 @@ $(document).ready(function() {
     }
 
     function display_online(response) {
-        let display_online_html, content = response.data;
+        let display_online_html = "",
+            content = response.data;
 
         content.forEach(function(user_obj) {
             let user_idx = content.indexOf(user_obj),
@@ -206,10 +201,10 @@ $(document).ready(function() {
             // if number > 4 digits, use a comma to separate every 3 digits
             // if (followers.toString().length > 3) followers = followers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-            display_online_html += "<div class='row' id='user_" + user_idx + "' style='padding-top:1.5em'>"; // open outer div
-            display_online_html += "<div class='col-lg-3 col-md-3 col-xs-4 text-center'>"; // open div row
+            display_online_html += "<div class='row' id='user_" + user_idx + "'>"; // open outer div
+            display_online_html += "<div class='col-lg-3 col-md-3 col-xs-4 text-center' data-toggle='modal' data-target='#modal_" + user_name + "'>"; // open div row
             display_online_html += "<img class='img-responsive img_size' src='" + thumbnail_url + "' alt='user thumbnail'>";
-            display_online_html += "<p data-toggle='modal' data-target='#modal_" + user_name + "' title='" + user_name + "' class='text-center'><strong>" + user_name + "</strong></a></p>";
+            display_online_html += "<p title='" + user_name + "' class='text-center'><strong>" + user_name + "</strong></a></p>";
             display_online_html += "<div class='modal fade' id='modal_" + user_name + "' tabindex='-1' role='dialog' aria-labelledby='modaltitle' aria-hidden='true'>"; // modal
             display_online_html += "<div class='modal-dialog modal-dialog-centered' role='document'>"; // modal-dialog
             display_online_html += "<div class='modal-content'>"; // modal-content
@@ -231,18 +226,29 @@ $(document).ready(function() {
             display_online_html += "</div>"; // close div row div
             display_online_html += "<div class='col-lg-9 col-md-9 col-xs-8'>"; // open div row 2
             display_online_html += "<a href='" + user_url + "' target='_blank' id='game_url'><p title='Stream Title'><strong><i class='fas fa-gamepad fa-lg' aria-hidden='true'></i>&nbsp<em><span>" + title + "</span></em></strong></p></a>";
-            display_online_html += "<div class='row'>"; // open div icons
-            display_online_html += "<div class='col-lg-3 col-md-3 col-xs-3'>"; // live viewers
+
+            if (microbrowser) display_online_html += "<div class='row' style='" + small_window_style + "'>"; // open div icons
+
+            display_online_html += "<div class='col-lg-3 col-md-3 col-xs-3 text-center'>"; // live viewers
             display_online_html += "<p title='" + viewer_count + " live viewers'><i class='fa fa-eye fa-lg text-info' aria-hidden='true'></i>&nbsp<em class='text-success'>" + viewer_count + "</em></p>";
             display_online_html += "</div>"; // live viewers
-            display_online_html += "<div class='col-lg-3 col-md-3 col-xs-3'>"; // stream lang
-            display_online_html += "<img title='Streaming in " + language[0] + "' alt='Streaming in " + language[0] + " flag' class='img-fluid' style='height:2vh' src='" + language[1] + "'>";
+
+            if (microbrowser) display_online_html += "<div class='col-lg-3 col-md-3 col-xs-3 text-center' style='" + small_div_style2 + " left:-15px;'>"; // stream lang
+            else display_online_html += "<div class='col-lg-3 col-md-3 col-xs-3 text-center'>"; // stream lang
+
+            display_online_html += "<img title='Streaming in " + language[0] + "' alt='Streaming in " + language[0] + "' class='img-fluid' style='height:2vh' src='" + language[1] + "'>";
             display_online_html += "</div>"; // stream lang
-            display_online_html += "<div class='col-lg-3 col-md-3 col-xs-3'>"; // start at
+
+            if (microbrowser) display_online_html += "<div class='col-lg-3 col-md-3 col-xs-3 text-center' style='" + small_div_style + small_div_style2 + " left:-35px;'>"; // start at
+            else display_online_html += "<div class='col-lg-3 col-md-3 col-xs-3 text-center'>"; // start at
+
             display_online_html += "<p title='Stream started " + (str_start.slice(0, 1).toLowerCase() + str_start.slice(1)) + "'><i class='fas fa-clock fa-lg text-info' aria-hidden='true'></i>&nbsp<em class='text-success'>" + str_start + "</em></p>";
             display_online_html += "</div>"; // start at
-            display_online_html += "<div class='col-lg-3 col-md-3 col-xs-3'>"; // followers
-            display_online_html += "<p title='followers'><i class='fas fa-users fa-lg text-info' aria-hidden='true'></i>&nbsp<em class='text-success'></em></p>";
+
+            if (microbrowser) display_online_html += "<div class='col-lg-3 col-md-3 col-xs-3 text-center' style='" + small_div_style2 + " left:-25px;'>"; // followers
+            else display_online_html += "<div class='col-lg-3 col-md-3 col-xs-3 text-center'>"; // followers
+
+            display_online_html += "<p title='followers'><i class='fas fa-users fa-lg text-info' aria-hidden='true'></i>&nbsp<em class='text-success'>1,333,490</em></p>";
             display_online_html += "</div>"; // followers
             display_online_html += "</div>"; // close div icons
             display_online_html += "</div>"; // close div row 2
