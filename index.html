@@ -18,80 +18,81 @@
 
 <body>
     <!-- Main Container -->
-    <div class="container-fluid" id="main_container">
+    <div id="main_container">
         <!-- Menu Bar -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <h4 class="navbar-brand"><span class="font-effect-anaglyph">H</span>elio <span class="font-effect-anaglyph">C</span>ardoso</h4>
-                    <h6 id="job_desc"></h6>
-                    <hr>
-                </div>
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="#home" class="glyphicon glyphicon-home"> <span>HOME</span></a>
-                    </li>
-                    <!-- <li> -->
-                    <!-- <a href="#about" class="glyphicon glyphicon-user"> <span>ABOUT</span></a> -->
-                    <!-- </li> -->
-                    <li>
-                        <a href="#portfolio" class="glyphicon glyphicon-briefcase"> <span>PORTFOLIO</span></a>
-                    </li>
-                    <!-- <li> -->
-                    <!-- <a href="#contact" class="glyphicon glyphicon-envelope"> <span>CONTACT</span></a> -->
-                    <!-- </li> -->
-                </ul>
-            </div>
+        <nav id="navbar" role="navigation">
+            <ul class="main-nav">
+                <li class="list-item name">
+                    <h4><span class="font-effect-anaglyph">H</span>elio </h4>
+                    <h4 class="test"><span class="font-effect-anaglyph">C</span>ardoso</h4>
+                </li>
+                <li class="list-item list-middle"></li>
+                <li class="list-item">
+                    <a href="#home" class="navbar-home"> HOME</a>
+                </li>
+                <li class="list-item">
+                    <a href="#portfolio" class="navbar-portfolio"> PORTFOLIO</a>
+                </li>
+                <li class="list-item">
+                    <a href="#contact" class="navbar-contact"> CONTACT</a>
+                </li>
+            </ul>
+            <hr>
         </nav>
         <!-- /Menu Bar -->
 
-        <article id="home">
-            <div>
-                <div>
-                    <h1>Hi,<br>I'm <span class="font-effect-anaglyph">H</span>elio,<br>web developer,<br>based in Manchester, United Kingdom</h1>
-                    <p>Software Engineer / Front End Developer</p>
+        <!-- Home -->
+        <header id="home">
+            <div class="background">
+                <div class="intro">
+                    <h1>I'm <span class="font-effect-anaglyph">H</span>elio,<br>software engineer<br>and web developer,<br>based in Manchester,<br>United Kingdom</h1>
+                </div>
+                <div class="author">
+                    <p>Photo by
+                        <a href="https://unsplash.com/@manikrathee?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Manik Rathee">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                                    <title>unsplash-logo</title>
+                                    <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
+                                </svg>
+                            </span>
+                            <span>Manik Rathee</span>
+                        </a> on Unsplash
+                    </p>
                 </div>
             </div>
-            <div id="tech">
-                <!-- <h3 class="text-center"><strong>Techno<span>logies</span></strong></h3> -->
-                <img src="https://s-media-cache-ak0.pinimg.com/originals/27/e2/f8/27e2f81f0b20c79a2b6dd093f06062d1.png" title="HTML5, CSS3 and JavaScript" alt="HTML5, CSS3, JavaScript">
-                <img src="http://pluspng.com/img-png/bootstrap-png-bootstrap-512.png" title="Bootstrap" alt="Bootstrap">
-                <img src="https://git-scm.com/images/logos/downloads/Git-Logo-2Color.png" title="Git" alt="Git">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/The_C_Programming_Language_logo.svg/2000px-The_C_Programming_Language_logo.svg.png" title="C Programming" alt="C">
-                <img src="https://pngimage.net/wp-content/uploads/2018/06/php-mysql-logo-png-5.png" title="PHP and MySQL" alt="PHP, MySQL">
-                <img src="https://camo.githubusercontent.com/02ed3f6695f288aedec24c2a329c667281efef5f/687474703a2f2f707265636973696f6e2d736f6674776172652e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f30342f6a5175726572792e676966" title="jQuery" alt="jQuery">
-            </div>
-        </article>
+        </header>
+        <!-- Home -->
 
-        <!-- About -->
-        <!-- <article id="about" class="container-fluid">
-            <div class="row">
-                <div class="col-md-4">
-                    <img class="img-responsive pull-right" src="images/helio_face.jpg" alt="Webpage owner, Helio Cardoso">
+        <!-- Skills -->
+        <section id="skills">
+            <div class="logo-container">
+                <div class="description">
+                    <h4 class="title"><strong>SKILLS & TECHNOLOGIES</strong></h4>
+                    <p class="summary">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio illo sequi non beatae voluptatibus sit error consequatur sed animi! Iste quia ex voluptates quaerat repudiandae fugit fuga assumenda provident optio!</p>
                 </div>
-                <div class="col-md-8 text-justify">
-                    <h3><strong><span>Front End</span> Developer</strong></h3>
-                    <p>An ambitious self-taught web developer who started the journey in web development out of curiosity for the current state of affairs worldwide, where computerized systems already play an enormous role on everyday life.</p>
-                    <p>My passion grows daily and my thirst to learn more is insatiable. I'm a self-motivator who wants to learn how the Web operates so that I can contribute to its development and be able to solve emerging real life problems, thus pushing
-                        myself to new lengths and acquiring new lifetime skills.</p>
+                <div class="logo-items">
+                    <div class="logo-item">
+                        <img src="images/index_images/web-trifecta.png">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/index_images/jquery.png">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/index_images/php-logo-flat.png">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/index_images/mysql-transparent.png">
+                    </div>
                 </div>
             </div>
-            <div>
-                <h3 class="text-center"><strong>Techno<span>logies</span></strong></h3>
-                <img src="https://s-media-cache-ak0.pinimg.com/originals/27/e2/f8/27e2f81f0b20c79a2b6dd093f06062d1.png" title="HTML5, CSS3 and JavaScript" alt="HTML5, CSS3, JavaScript">
-                <img src="http://pluspng.com/img-png/bootstrap-png-bootstrap-512.png" title="Bootstrap" alt="Bootstrap">
-                <img src="https://git-scm.com/images/logos/downloads/Git-Logo-2Color.png" title="Git" alt="Git">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/The_C_Programming_Language_logo.svg/2000px-The_C_Programming_Language_logo.svg.png" title="C Programming" alt="C">
-                <img src="https://pngimage.net/wp-content/uploads/2018/06/php-mysql-logo-png-5.png" title="PHP and MySQL" alt="PHP, MySQL">
-                <img src="https://camo.githubusercontent.com/02ed3f6695f288aedec24c2a329c667281efef5f/687474703a2f2f707265636973696f6e2d736f6674776172652e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f30342f6a5175726572792e676966" title="jQuery" alt="jQuery">
-            </div>
-            <hr>
-        </article> -->
-        <!-- /About -->
+            <!-- <hr> -->
+        </section>
+        <!-- /Skills -->
 
         <!-- Portfolio -->
         <!-- change images, make similar to this website http://www.proteas.gr/transforming/ -->
-        <article class="container-fluid" id="portfolio">
+        <section id="portfolio">
             <!-- First Row -->
             <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-12">
@@ -212,11 +213,11 @@
                 </div>
             </div> -->
             <!-- /Third Row -->
-        </article>
+        </section>
         <!-- /Portfolio -->
 
         <!-- Contact -->
-        <!-- <article id="contact">
+        <!-- <section id="contact">
             <div class="col-md-6 col-xs-12">
                 <h3 class="text-center">Get in touch</h3>
                 <p class="text-center">@<br>cardoso_helio@hotmail.com</p>
@@ -266,14 +267,13 @@
                     </div>
                 </form>
             </div>
-        </article> -->
+        </section> -->
         <!-- /Contact -->
     </div>
     <!-- /Main Container -->
     <footer>
         <hr>
-        <p class="text-center">Created by Helio Cardoso</p>
-        <hr>
+        <p>Created by Helio Cardoso</p>
     </footer>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
