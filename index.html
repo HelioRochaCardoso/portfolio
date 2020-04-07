@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Helio Portfolio</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round&effect=anaglyph|3d-float|3d|shadow-multiple">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ranchers">
@@ -13,7 +14,6 @@
     <script src="https://use.fontawesome.com/d81fb7d455.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="index.css">
-    <script src="index.js"></script>
 </head>
 
 <body>
@@ -22,18 +22,18 @@
         <!-- Menu Bar -->
         <nav id="navbar" role="navigation">
             <ul class="main-nav">
-                <li class="list-item name">
-                    <h4><span class="font-effect-anaglyph">H</span>elio </h4>
+                <li class="nav-item name">
+                    <h4><span class="font-effect-anaglyph">H</span>élio </h4>
                     <h4 class="test"><span class="font-effect-anaglyph">C</span>ardoso</h4>
                 </li>
-                <li class="list-item list-middle"></li>
-                <li class="list-item">
+                <li class="nav-item list-middle"></li>
+                <li class="nav-item">
                     <a href="#home" class="navbar-home"> HOME</a>
                 </li>
-                <li class="list-item">
+                <li class="nav-item">
                     <a href="#portfolio" class="navbar-portfolio"> PORTFOLIO</a>
                 </li>
-                <li class="list-item">
+                <li class="nav-item">
                     <a href="#contact" class="navbar-contact"> CONTACT</a>
                 </li>
             </ul>
@@ -73,16 +73,25 @@
                 </div>
                 <div class="logo-items">
                     <div class="logo-item">
-                        <img src="images/index_images/web-trifecta.png">
+                        <img src="images/index_images/web-trifecta.png" alt="HTML5, CSS3 & JavaScript" title="HTML5, CSS3 & JavaScript">
                     </div>
                     <div class="logo-item">
-                        <img src="images/index_images/jquery.png">
+                        <img src="images/index_images/jquery.png" alt="jQuery" title="jQuery">
                     </div>
                     <div class="logo-item">
-                        <img src="images/index_images/php-logo-flat.png">
+                        <img src="images/index_images/php-logo-flat.png" alt="PHP" title="PHP">
                     </div>
                     <div class="logo-item">
-                        <img src="images/index_images/mysql-transparent.png">
+                        <img src="images/index_images/mysql-transparent.png" alt="MySQL" title="MySQL">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/index_images/bootstrap-logo.png" alt="Bootstrap" title="Bootstrap">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/index_images/react-logo.png" alt="React JS" title="React JS">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/index_images/Node.js_logo_2015.png" alt="Node JS" title="Node JS">
                     </div>
                 </div>
             </div>
@@ -93,37 +102,47 @@
         <!-- Portfolio -->
         <!-- change images, make similar to this website http://www.proteas.gr/transforming/ -->
         <section id="portfolio">
-            <!-- First Row -->
-            <div class="row">
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <a href="random_quote_machine.html">
-                        <img class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/contenthub-static/blog/wp-content/uploads/2016/08/quotation-marks.gif" alt="Animated quotation marks">
-                        <figcaption class="text-center bold"><span>Random Quote Machine</span><br>CSS, Bootstrap, JavaScript</figcaption>
-                    </a>
+            <div class="project-container">
+                <div class="description">
+                    <h4 class="title"><strong>PROJECTS</strong></h4>
+                    <p class="summary">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio illo sequi non beatae voluptatibus sit error consequatur sed animi! Iste quia ex voluptates quaerat repudiandae fugit fuga assumenda provident optio!</p>
                 </div>
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <a href="weather_app.html">
-                        <img class="img img-responsive img-thumbnail" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/3f61ec27118125.5636032dd67b0.gif" alt="Animated phone weather application">
-                        <figcaption class="text-center bold"><span>Weather App</span><br>CSS, Bootstrap, JavaScript</figcaption>
-                    </a>
-                </div>
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <a href="wiki_viewer.html">
-                        <img class="img img-responsive img-thumbnail" src="https://previews.123rf.com/images/stuartphoto/stuartphoto1205/stuartphoto120500902/13564488-Wiki-D-finition-Loupe-Affiche-en-ligne-Encyclop-die-Collaborative-Community-Banque-d'images.jpg" alt="Wiki definition">
-                        <figcaption class="text-center bold"><span>Wiki Viewer</span><br>CSS, Bootstrap, JavaScript</figcaption>
-                    </a>
-                </div>
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <a href="cs50_lightbulb_game.html">
-                        <img class="img img-responsive img-thumbnail" src="http://luxreview.com/upload/system/2017/01/16110415.jpg">
-                        <figcaption class="text-center bold"><span>Binary Light Bulb Game</span><br>CSS, Bootstrap, JavaScript</figcaption>
-                    </a>
-                </div>
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <a href="twitch_tv.html">
-                        <img class="img img-responsive img-thumbnail" src="https://i.ytimg.com/vi/1hyZjBdwK40/maxresdefault.jpg">
-                        <figcaption class="text-center bold"><span>Twitch API</span><br> HTML, CSS, Bootstrap, JavaScript</figcaption>
-                    </a>
+                <div class="project-items">
+                    <div class="project-item random_quote_machine">
+                        <a href="random_quote_machine.html">
+                            <div class="inner-box">
+                                <h4>Random Quote Machine</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="project-item weather-app">
+                        <a href="weather_app.html">
+                            <div class="inner-box">
+                                <h4>Weather App</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="project-item wiki_viewer">
+                        <a href="wiki_viewer.html">
+                            <div class="inner-box">
+                                <h4>Wiki Viewer</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="project-item lightbulb_game">
+                        <a href="cs50_lightbulb_game.html">
+                            <div class="inner-box">
+                                <h4>Binary Light Bulbs</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="project-item twitch_tv">
+                        <a href="twitch_tv.html">
+                            <div class="inner-box">
+                                <h4>Twitch TV</h4>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -212,17 +231,22 @@
                     </a>
                 </div>
             </div> -->
-            <!-- /Third Row -->
         </section>
         <!-- /Portfolio -->
 
         <!-- Contact -->
+        <section id="contact">
+
+        </section>
+        <!-- Contact -->
+
+        <!-- Contact -->
         <!-- <section id="contact">
             <div class="col-md-6 col-xs-12">
-                <h3 class="text-center">Get in touch</h3>
+                <h5 class="text-center">Get in touch</h5>
                 <p class="text-center">@<br>cardoso_helio@hotmail.com</p>
                 <hr>
-                <h3 class="text-center">Find me on</h3>
+                <h5 class="text-center">Find me on</h5>
                 <ul class="row text-center list-unstyled">
                     <li>
                         <a href="https://www.linkedin.com/in/helio-cardoso-822355116?trk=nav_responsive_tab_profile">
@@ -248,7 +272,7 @@
             </div>
             <div class="col-md-6 col-xs-12">
                 <form action="/submit-contact-info" method="post" id="contact_form">
-                    <h3 class="text-center">Leave me a message</h3>
+                    <h5 class="text-center">Leave me a message</h5>
                     <hr>
                     <div class="form-group">
                         <label for="userEmail"><strong>Email:</strong></label>
@@ -269,15 +293,57 @@
             </div>
         </section> -->
         <!-- /Contact -->
+
     </div>
     <!-- /Main Container -->
-    <footer>
+
+    <footer id="footer">
+        <div id="contact" class="contact">
+            <p class="title">Contact</p>
+            <div class="email-container">
+                <a href="mailto:cardoso_helio@hotmail.com?subject=Helio Porfolio">Email Me</a>
+                <input type="text" value="cardoso_helio@hotmail.com" class="my-email" disabled>
+                <button class="btn-email-copy" title="Copy">
+                    <i class="far fa-copy"></i>
+                </button>
+                <span class="tooltip">Copied</span>
+            </div>
+            <!-- <div class="curriculum">
+                <div>Curriculum</div>
+            </div> -->
+            <ul class="contact-list">
+                <li class="contact-item">
+                    <a href="https://www.linkedin.com/in/helio-cardoso-822355116?trk=nav_responsive_tab_profile" title="LinkedIn" target="_blank">
+                        <i class="fa fa-linkedin"></i>
+                    </a>
+                </li>
+                <li class="contact-item">
+                    <a href="https://www.facebook.com/heliocardoso301991" title="Facebook" target="_blank">
+                        <i class="fa fa-facebook-f"></i>
+                    </a>
+                </li>
+                <li class="contact-item">
+                    <a href="https://github.com/HelioRochaCardoso" title="GitHub" target="_blank">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </li>
+                <li class="contact-item">
+                    <a href="https://codepen.io/heliocardoso/" title="Codepen" target="_blank">
+                        <i class="fa fa-codepen"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
         <hr>
-        <p>Created by Helio Cardoso</p>
+        <div class="website-owner">
+            <p>Created by Hélio Cardoso</p>
+        </div>
     </footer>
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
 </body>
 
 </html>
