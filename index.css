@@ -13,7 +13,7 @@ body {
 }
 
 body {
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
 #main_container {
@@ -26,7 +26,6 @@ body {
     position: fixed;
     /* Safari */
     position: -webkit-sticky;
-    font-family: 'Barlow Semi Condensed', sans-serif;
     background: white;
     min-width: 100%;
     padding: 0 5%;
@@ -36,9 +35,9 @@ body {
 #navbar hr {
     position: absolute;
     top: 0;
-    left: 30em;
+    left: 25%;
     height: 2.5em;
-    border: 0.25px solid red;
+    border: 0.5px solid red;
 }
 
 .main-nav {
@@ -49,22 +48,23 @@ body {
     padding: 0;
     font-size: 1em;
     align-items: center;
+    border-bottom: 1px solid black;
 }
 
 .main-nav .list-middle {
     margin: auto;
 }
 
-.list-item:not(.item-middle) {
+.nav-item:not(.list-middle) {
     padding: 0 25px;
 }
 
-.list-item a {
+.nav-item a {
     color: inherit;
     text-decoration: none;
 }
 
-.list-item a:hover {
+.nav-item a:hover {
     color: orange;
 }
 
@@ -152,18 +152,19 @@ body {
 .logo-container {
     display: grid;
     grid-gap: 5px;
-    grid-template-columns: 60vw;
+    /* grid-template-columns: 60vw; */
+    grid-template-columns: auto;
     grid-template-rows: 1fr auto;
-    border-bottom: 1px solid orange;
-    font-family: 'Barlow Semi Condensed', sans-serif;
-}
-
-.logo-container .title {
-    margin-bottom: 50px;
+    border-bottom: 0.25px solid grey;
+    width: 80%;
 }
 
 .logo-container .description {
     text-align: center;
+    margin-bottom: 50px;
+}
+
+.logo-container .title {
     margin-bottom: 50px;
 }
 
@@ -178,54 +179,173 @@ body {
 }
 
 #portfolio {
-    background: linear-gradient(#995c00, #664400);
-    /* Standard syntax */
-    background: -webkit-linear-gradient(#995c00, #664400);
-    /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#995c00, #664400);
-    /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#995c00, #664400);
-    /* For Firefox 3.6 to 15 */
-    /* background: rgba(245, 247, 246, 0.836); */
-    background: white;
-    /* For browsers that do not support gradients */
-    /* min-height: 100vh; */
-    /* padding-top: 50px; */
-    padding: 5% 15% 10% 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #151515;
+    color: white;
+    padding: 7% 0 15% 0;
 }
 
-#portfolio>div>div {
-    padding: 27px 27px;
+.project-container .description {
+    text-align: center;
+    margin-bottom: 50px;
+    width: 50%;
+    margin: auto;
+    padding: 50px;
 }
 
-.img {
-    width: calc(200% / 2);
-    height: 35vh;
+.project-items {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
 }
 
-.bold {
-    font-weight: 600;
+.project-item {
+    height: 300px;
+    width: 500px;
+    padding: 25px;
+    -webkit-filter: grayscale(100%);
+    /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+    transition: filter 1s linear, -webkit-filter 1s linear;
 }
 
-#portfolio figcaption span {
-    /* color: #4db6ac; */
-    color: black;
-    font-weight: 900;
+.project-item:hover {
+    -webkit-filter: 0;
+    /* Safari 6.0 - 9.0 */
+    filter: none;
+}
+
+.project-item:hover .inner-box {
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.project-item:hover .inner-box h4 {
+    font-size: 1.7rem;
+    color: rgb(61, 167, 161);
+}
+
+.project-item a {
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+}
+
+.inner-box {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.inner-box h4 {
+    font-weight: bolder;
+    text-shadow: 3px 3px 6px rgb(0, 0, 0);
+    color: rgb(89, 60, 128);
+    align-self: center;
+    font-family: 'Comfortaa', cursive;
+    transition: font-size 1s linear, color 0.25s linear;
+}
+
+.project-items .random_quote_machine {
+    background-image: url("images/index_images/quotation-marks.gif");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.project-items .weather-app {
+    background-image: url("images/index_images/weather-phone.gif");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.project-items .wiki_viewer {
+    background-image: url("images/index_images/wiki-and-mangnifying-glass.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.project-items .lightbulb_game {
+    background-image: url("images/index_images/lightbulbs.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.project-items .twitch_tv {
+    background-image: url("images/index_images/twitch-background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 footer {
     position: relative;
     width: 100vw;
-    background: black;
     bottom: 0;
-    color: white;
     display: flex;
-    justify-content: center;
-    padding: 1% 0;
+    justify-content: space-around;
+    padding: 1% 0 1% 0;
+}
+
+.contact .title {
+    text-align: center;
+}
+
+.website-owner {
+    align-self: center;
+}
+
+.contact-list .contact-item {
+    list-style-type: none;
+    display: inline-block;
+    padding: 25px;
+    margin: auto;
+}
+
+.contact-item {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.contact .email-container {
+    font-family: 'Comfortaa', cursive;
+    /* text-align: center; */
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.tooltip {
+    display: block;
+    border: 1px solid black;
+    background: orange;
+    /* margin-left: 10px; */
+    /* padding: 10px; */
+    /* position: absolute; */
+    z-index: 10;
+    width: 100px;
+    height: 100px;
+}
+
+
+/* .contact .email-container:hover .tooltip {
+    display: block;
+} */
+
+.my-email {
+    text-align: center;
 }
 
 footer hr {
-    border-color: red;
+    position: absolute;
+    top: 25%;
+    left: 55%;
+    height: 5em;
+    border: 0.5px solid red;
 }
 
 @media only screen and (max-width:600px) {
@@ -243,5 +363,23 @@ footer hr {
     }
     #home .intro h1 {
         font-size: 1.5rem;
+    }
+    footer {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        height: 25vh;
+    }
+    footer hr {
+        width: 70%;
+        height: 0;
+        top: 60%;
+        left: 15%;
+    }
+    .contact {
+        margin: auto;
+    }
+    .website-owner {
+        margin: auto;
     }
 }

@@ -22,30 +22,44 @@
 //     });
 // });
 
-let body_scroll = document.documentElement.scrollTop,
-    navbar = document.querySelector(".navbar"),
-    navbar_brand = document.querySelector(".navbar-brand"),
-    navbar_li_a = document.querySelector("a.glyphicon");
+// let body_scroll = document.documentElement.scrollTop,
+//     navbar = document.querySelector(".navbar"),
+//     navbar_brand = document.querySelector(".navbar-brand"),
+//     navbar_li_a = document.querySelector("a.glyphicon"),
+//     btn_email_copy = document.querySelector(".btn-email-copy");
 
-switch (body_scroll) {
-    case body_scroll === 0:
-        // alert(body_scroll);
-        navbar.style.background = "#262626";
-        break;
-    case body_scroll > 565:
-        alert(body_scroll);
-        navbar.style.background = "white";
-        break;
-    case body_scroll > 1200:
-        alert(body_scroll);
-        navbar.style.background = "#262626";
-        break;
-    case body_scroll > 2200:
-        alert(body_scroll);
-        navbar.style.background = "white";
-        break;
-    default:
-        // alert(body_scroll);
-        navbar.style.background = "#262626";
-        break;
-}
+// switch (body_scroll) {
+//     case body_scroll === 0:
+//         // alert(body_scroll);
+//         navbar.style.background = "#262626";
+//         break;
+//     case body_scroll > 565:
+//         alert(body_scroll);
+//         navbar.style.background = "white";
+//         break;
+//     case body_scroll > 1200:
+//         alert(body_scroll);
+//         navbar.style.background = "#262626";
+//         break;
+//     case body_scroll > 2200:
+//         alert(body_scroll);
+//         navbar.style.background = "white";
+//         break;
+//     default:
+//         // alert(body_scroll);
+//         navbar.style.background = "#262626";
+//         break;
+// }
+
+let btn_email_copy = document.querySelector(".btn-email-copy");
+
+btn_email_copy.addEventListener("click", () => {
+    let copyText = document.querySelector(".my-email");
+
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+    document.execCommand("copy");
+
+    alert(`Copied ${copyText.value}`);
+});
