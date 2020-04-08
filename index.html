@@ -8,11 +8,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round&effect=anaglyph|3d-float|3d|shadow-multiple">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ranchers">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bree+Serif">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://use.fontawesome.com/d81fb7d455.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 
@@ -20,23 +18,32 @@
     <!-- Main Container -->
     <div id="main_container">
         <!-- Menu Bar -->
-        <nav id="navbar" role="navigation">
-            <ul class="main-nav">
-                <li class="nav-item name">
-                    <h4><span class="font-effect-anaglyph">H</span>élio </h4>
-                    <h4 class="test"><span class="font-effect-anaglyph">C</span>ardoso</h4>
-                </li>
-                <li class="nav-item list-middle"></li>
-                <li class="nav-item">
-                    <a href="#home" class="navbar-home"> HOME</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#portfolio" class="navbar-portfolio"> PORTFOLIO</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="navbar-contact"> CONTACT</a>
-                </li>
-            </ul>
+        <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light" role="navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="nav-item name">
+                <h4><span class="font-effect-anaglyph">H</span>élio </h4>
+                <h4><span class="font-effect-anaglyph">C</span>ardoso</h4>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarToggler">
+                <ul class="main-nav navbar-nav mr-auto mt-2 mt-lg-0">
+                    <!-- <div class="nav-item name">
+                        <h4><span class="font-effect-anaglyph">H</span>élio </h4>
+                        <h4 class="test"><span class="font-effect-anaglyph">C</span>ardoso</h4>
+                    </div> -->
+                    <li class="nav-item list-middle"></li>
+                    <li class="nav-item">
+                        <a href="#home" class="navbar-home active"> HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#portfolio" class="navbar-portfolio"> PORTFOLIO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="navbar-contact"> CONTACT</a>
+                    </li>
+                </ul>
+            </div>
             <hr>
         </nav>
         <!-- /Menu Bar -->
@@ -91,16 +98,15 @@
                         <img src="images/index_images/react-logo.png" alt="React JS" title="React JS">
                     </div>
                     <div class="logo-item">
-                        <img src="images/index_images/Node.js_logo_2015.png" alt="Node JS" title="Node JS">
+                        <img src="images/index_images/node.js_logo_2015.png" alt="Node JS" title="Node JS">
                     </div>
                 </div>
             </div>
-            <!-- <hr> -->
         </section>
         <!-- /Skills -->
 
         <!-- Portfolio -->
-        <!-- change images, make similar to this website http://www.proteas.gr/transforming/ -->
+        <!-- style inspired on this website http://www.proteas.gr/transforming/ -->
         <section id="portfolio">
             <div class="project-container">
                 <div class="description">
@@ -111,7 +117,7 @@
                     <div class="project-item random_quote_machine">
                         <a href="random_quote_machine.html">
                             <div class="inner-box">
-                                <h4>Random Quote Machine</h4>
+                                <h4>Random Quotes</h4>
                             </div>
                         </a>
                     </div>
@@ -235,12 +241,6 @@
         <!-- /Portfolio -->
 
         <!-- Contact -->
-        <section id="contact">
-
-        </section>
-        <!-- Contact -->
-
-        <!-- Contact -->
         <!-- <section id="contact">
             <div class="col-md-6 col-xs-12">
                 <h5 class="text-center">Get in touch</h5>
@@ -301,12 +301,7 @@
         <div id="contact" class="contact">
             <p class="title">Contact</p>
             <div class="email-container">
-                <a href="mailto:cardoso_helio@hotmail.com?subject=Helio Porfolio">Email Me</a>
-                <input type="text" value="cardoso_helio@hotmail.com" class="my-email" disabled>
-                <button class="btn-email-copy" title="Copy">
-                    <i class="far fa-copy"></i>
-                </button>
-                <span class="tooltip">Copied</span>
+                <input type="text" value="cardoso_helio@hotmail.com" class="my-email" readonly>
             </div>
             <!-- <div class="curriculum">
                 <div>Curriculum</div>
@@ -315,11 +310,6 @@
                 <li class="contact-item">
                     <a href="https://www.linkedin.com/in/helio-cardoso-822355116?trk=nav_responsive_tab_profile" title="LinkedIn" target="_blank">
                         <i class="fa fa-linkedin"></i>
-                    </a>
-                </li>
-                <li class="contact-item">
-                    <a href="https://www.facebook.com/heliocardoso301991" title="Facebook" target="_blank">
-                        <i class="fa fa-facebook-f"></i>
                     </a>
                 </li>
                 <li class="contact-item">
